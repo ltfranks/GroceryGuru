@@ -3,26 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>"Food Guru"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/tokens.css">
+    <link rel="stylesheet" href="/styles/page.css"/>
+
 </head>
+<body>
+    <header>
+        <h1>Food Guru</h1>
+        <p>Reduce food waste and save money!</p>
+    </header>
 
-<header>
-    <h1>Food Guru</h1>
-    <p>Reducing food waste and helping save money!</p>
-</header>
-
-<section>
-    <h2>Food Vendors</h2>
-    <ul>
-        <li><a href="food_vendors/trader_joes.html"> Trader Joes</a></li>
-        <li><a href="food_vendors/lukes_local_market.html"> Luke's Strawberries</a></li>
-
-    </ul>
-    <h2>Recipes</h2>
-    <ul>
-        <li><a href="Recipes/Chicken_Veggies.html"> Chicken & Veggies </a></li>
-        <li><a href="Recipes/Spaghetti.html"> Spaghetti w/ Sausage </a></li>
-
-    </ul>
-</section>
-
+    <section>
+        <h2>
+            <img src="../images/DALLE_Basket.webp" style="max-width: 100%; height: auto;">
+        </h2>
+        <h2> <!-- gave store.svg a class=icon which is under tokens -->
+            Food Vendors <img src="/icons/store.svg" class="icon" alt="store icon" />
+        </h2>
+        <h3> Find the best food vendor for you. Then, we will help find your best valued basket! </h3>
+        <ul>
+            <li><a href="food_vendors/trader_joes.html"> Trader Joe's</a></li>
+            <li><a href="food_vendors/lukes_local_market.html"> Luke's Strawberries</a></li>
+        </ul>
+        <h2>
+            Recipes <img src="/icons/recipe.svg" class="icon" alt="recipe icon" />
+        </h2>
+        <h3> Ingredients with good value and quality - perfect for any recipe. </h3>
+        <ul>
+            <li><a href="Recipes/Chicken_Veggies.html"> Chicken & Veggies </a></li>
+            <li><a href="Recipes/Spaghetti.html"> Spaghetti w/ Sausage </a></li>
+        </ul>
+    </section>
+</body>
 </html>
