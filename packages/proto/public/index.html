@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>"Food Guru"</title>
+    <title>Food Guru</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -14,34 +14,57 @@
     <link rel="stylesheet" href="/styles/reset.css">
     <link rel="stylesheet" href="/styles/tokens.css">
     <link rel="stylesheet" href="/styles/page.css"/>
+    <link rel="stylesheet" href="/styles/header_layout.css">
+    <link rel="stylesheet" href="/styles/vendors_grid.css">
 
 </head>
 <body>
-    <header>
+    <header class="header_layout">
         <h1>Food Guru</h1>
-        <p>Reduce food waste and save money!</p>
+        <nav class="nav_links">
+            <a href="index.html">Home</a>
+            <a href="nav_links/vendors.html">Vendors</a>
+            <a href="nav_links/recipes.html">Recipes</a>
+            <a href="nav_links/about.html">About</a>
+        </nav>
+        <div class="login">
+            <a href="nav_links/login.html">Login</a>
+        </div>
     </header>
+    <div class="container">
+        <!-- Search Bar Section -->
+        <div class="search_section">
+            <h1>Search for Items</h1>
+            <input type="text" placeholder="Enter item name..." class="search_input">
+            <button class="search_button">Add to Cart</button>
+        </div>
 
-    <section>
-        <h2>
-            <img src="../images/DALLE_Basket.webp" style="max-width: 100%; height: auto;">
-        </h2>
-        <h2> <!-- gave store.svg a class=icon which is under tokens -->
-            Food Vendors <img src="/icons/store.svg" class="icon" alt="store icon" />
-        </h2>
-        <h3> Find the best food vendor for you. Then, we will help find your best valued basket! </h3>
-        <ul>
-            <li><a href="food_vendors/trader_joes.html"> Trader Joe's</a></li>
-            <li><a href="food_vendors/lukes_local_market.html"> Luke's Strawberries</a></li>
-        </ul>
-        <h2>
-            Recipes <img src="/icons/recipe.svg" class="icon" alt="recipe icon" />
-        </h2>
-        <h3> Ingredients with good value and quality - perfect for any recipe. </h3>
-        <ul>
-            <li><a href="Recipes/Chicken_Veggies.html"> Chicken & Veggies </a></li>
-            <li><a href="Recipes/Spaghetti.html"> Spaghetti w/ Sausage </a></li>
-        </ul>
-    </section>
+        <!-- Shopping Cart Section -->
+        <div class="cart_section">
+            <h2>Your Cart</h2>
+
+            <!-- Imaginary Cart Items -->
+            <div class="cart_item">
+                <p class="item_name">Apples</p>
+                <button class="remove_button">Remove</button>
+            </div>
+
+            <div class="cart_item">
+                <p class="item_name">Bananas</p>
+                <button class="remove_button">Remove</button>
+            </div>
+
+            <div class="cart_item">
+                <p class="item_name">Carrots</p>
+                <button class="remove_button">Remove</button>
+            </div>
+
+            <!-- Cart Summary Placeholder -->
+            <div class="cart_summary">
+                <p>Total Items: 3</p>
+                <p>Estimated Total: $15.00</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

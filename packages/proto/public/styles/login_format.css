@@ -1,0 +1,81 @@
+body {
+    font-family: var(--font-family-body);
+    background-color: var(--color-background-page); /* Set background color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure the body takes up the full height of the viewport */
+    background-size: cover; /* Ensure background image covers the viewport */
+    background-position: center; /* Center the background image */
+}
+.login_container {
+    background-color: var(--color-text-inverted); /* White background */
+    padding: var(--size-spacing-xlarge); /* Space around the form */
+    border-radius: var(--size-spacing-large); /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow for elevation */
+    width: 100%;
+    max-width: 400px; /* Limit the width of the form */
+    text-align: center; /* Center-align text in the container */
+    backdrop-filter: blur(5px); /* Slight blur for background */
+    background-color: white; /* Slight transparency */
+}
+
+.login_form h2 {
+    font-size: var(--size-type-large);
+    text-align: center;
+    margin-bottom: var(--size-spacing-large); /* Space below the heading */
+    color: var(--color-text);
+}
+
+.input_group {
+    margin-bottom: var(--size-spacing-medium);
+}
+
+.input_group label {
+    display: block;
+    margin-bottom: var(--size-spacing-small); /* Small space between label and input */
+    font-size: var(--font-size-small-medium); /* Small-medium font size */
+    color: var(--color-text); /* Default text color */
+}
+
+.input_group input {
+    width: 100%;
+    padding: var(--size-spacing-medium); /* Medium padding inside input fields */
+    border: 1px solid var(--color-link); /* Dark link color as border */
+    border-radius: var(--size-spacing-small);
+    font-size: var(--font-size-medium);
+}
+
+.login_button {
+    width: 100%;
+    background-color: var(--color-accent);
+    color: var(--color-text-inverted);
+    padding: var(--size-spacing-medium);
+    border: none;
+    border-radius: var(--size-spacing-small); /* Small rounded corners */
+    font-size: var(--font-size-medium);
+    cursor: pointer;
+    margin-top: var(--size-spacing-medium);
+}
+
+.login_button:hover {
+    background-color: var(--color-accent-inverted);
+}
+
+.signup_link {
+    text-align: center;
+    margin-top: var(--size-spacing-large); /* Large margin at the top */
+    font-size: var(--font-size-small-medium); /* Small-medium font size */
+    color: var(--color-text); /* Default text color */
+}
+
+.signup_link a {
+    color: var(--color-link); /* Default link color */
+    text-decoration: none;
+}
+
+.signup_link a:hover {
+    text-decoration: underline;
+}
