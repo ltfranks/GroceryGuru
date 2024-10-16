@@ -9,6 +9,7 @@
     background-color: white;
     border-radius: 8px;
     overflow: hidden;
+    border-style: solid;
 }
 
 .vendor_image{

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Food Guru</title>
+    <title>Grocery Guru</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -15,12 +15,13 @@
     <link rel="stylesheet" href="/styles/tokens.css">
     <link rel="stylesheet" href="/styles/page.css"/>
     <link rel="stylesheet" href="/styles/header_layout.css">
-    <link rel="stylesheet" href="/styles/vendors_grid.css">
+    <link rel="stylesheet" href="/styles/home_layout.css">
+
 
 </head>
 <body>
     <header class="header_layout">
-        <h1>Food Guru</h1>
+        <h1>Grocery Guru</h1>
         <nav class="nav_links">
             <a href="index.html">Home</a>
             <a href="nav_links/vendors.html">Vendors</a>
@@ -31,40 +32,22 @@
             <a href="nav_links/login.html">Login</a>
         </div>
     </header>
-    <div class="container">
-        <!-- Search Bar Section -->
-        <div class="search_section">
-            <h1>Search for Items</h1>
-            <input type="text" placeholder="Enter item name..." class="search_input">
-            <button class="search_button">Add to Cart</button>
-        </div>
+    <main>
+        <section class="search-section">
+            <h2>Search for Items</h2>
+            <div class="search-bar">
+                <input type="text" id="item-name" placeholder="Enter item name...">
+                <button>Add to Cart</button>
+            </div>
+        </section>
 
-        <!-- Shopping Cart Section -->
-        <div class="cart_section">
+        <section class="cart-section">
             <h2>Your Cart</h2>
-
-            <!-- Imaginary Cart Items -->
-            <div class="cart_item">
-                <p class="item_name">Apples</p>
-                <button class="remove_button">Remove</button>
+            <div class="cart-summary">
+                <p>Total Items: <span id="total-items">0</span></p>
+                <p>Estimated Total: $<span id="estimated-total">0.00</span></p>
             </div>
-
-            <div class="cart_item">
-                <p class="item_name">Bananas</p>
-                <button class="remove_button">Remove</button>
-            </div>
-
-            <div class="cart_item">
-                <p class="item_name">Carrots</p>
-                <button class="remove_button">Remove</button>
-            </div>
-
-            <!-- Cart Summary Placeholder -->
-            <div class="cart_summary">
-                <p>Total Items: 3</p>
-                <p>Estimated Total: $15.00</p>
-            </div>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
