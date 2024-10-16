@@ -10,11 +10,9 @@ header{
 }
 header a{
     color: var(--color-link-inverted);
-
 }
 body > section{
 }
-
 h1{
     font-size: var(--size-type-xxlarge);
     font-style: oblique;
