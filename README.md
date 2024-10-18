@@ -1,3 +1,5 @@
+https://ltfranks.csse.dev/ 
+
 "npm start" in proto folder to start project
 
 comment 10/17/24: still debating if i want grocery store links for this web app. Very likely ill do something else with it
