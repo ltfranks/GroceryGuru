@@ -18,6 +18,18 @@
             }
         }
     </script>
+    <script type="module">
+        import { define } from "@calpoly/mustang";
+        import { GroceryLink } from "../scripts/grocery-link.js";
+        import {HeaderElement} from "../scripts/header.js";
+
+        define({
+            "grocery-link": GroceryLink,
+            "all-header": HeaderElement
+        })
+        HeaderElement.initializeOnce()
+
+    </script>
 
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/tokens.css">
@@ -26,18 +38,7 @@
     <link rel="stylesheet" href="../styles/recipe_layout.css">
 </head>
 <body>
-<header class="header_layout">
-    <h1>Grocery Guru</h1>
-    <nav class="nav_links">
-        <a href="../index.html">Home</a>
-        <a href="../nav_links/vendors.html">Vendors</a>
-        <a href="../nav_links/recipes.html">Recipes</a>
-        <a href="../nav_links/about.html">About</a>
-    </nav>
-    <div class="login">
-        <a href="../nav_links/login.html">Login</a>
-    </div>
-</header>
+<all-header></all-header>
 <div class="container">
     <div class="recipe-header">
         <h1>Pancakes</h1>
@@ -93,14 +94,7 @@
     </ul>
 </div>
 
-<script type="module">
-    import { define } from "@calpoly/mustang";
-    import { GroceryLink } from "../scripts/grocery-link.js";
 
-    define({
-        "grocery-link": GroceryLink
-    })
-</script>
 
 
 </body>
