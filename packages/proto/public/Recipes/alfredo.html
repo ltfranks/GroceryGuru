@@ -11,6 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
+    <script type="importmap">
+        {
+            "imports": {
+                "@calpoly/mustang": "https://unpkg.com/@calpoly/mustang"
+            }
+        }
+    </script>
+
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/tokens.css">
     <link rel="stylesheet" href="../styles/page.css"/>
@@ -77,16 +85,23 @@
     <p>For a richer flavor, you can add a bit of butter or extra Parmesan to the sauce.</p>
 </div>
 
-<div class="grocery-links">
+<div>
     <h3>Where to Buy</h3>
     <ul>
+        <!-- custom element grocery-link in grocery-link.js -->
         <grocery-link store="Trader Joe's" url="https://www.traderjoes.com/home" cost="$12.50"></grocery-link>
         <grocery-link store="Vons" url="https://www.vons.com/" cost="$11.80"></grocery-link>
         <grocery-link store="Kroger" url="https://www.kroger.com/" cost="$13.00"></grocery-link>
     </ul>
 </div>
-<script src="../scripts/grocery-link.js" type="module"></script>
+<script type="module">
+    import { define } from "@calpoly/mustang";
+    import { GroceryLink } from "../scripts/grocery-link.js";
 
+    define({
+        "grocery-link": GroceryLink
+    })
+</script>
 
 </body>
 </html>

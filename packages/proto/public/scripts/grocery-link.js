@@ -3,7 +3,7 @@ import { html, css, shadow } from "@calpoly/mustang";
 export class GroceryLink extends HTMLElement {
 
     static template = html`<template>
-        <div class="grocery-item">
+        <div class="grocery-links">
             <h3>
                 <a href="#"><slot name="store">Store Name</slot></a>
             </h3>
@@ -17,29 +17,29 @@ export class GroceryLink extends HTMLElement {
     :host {
         display: block;
         margin-bottom: 10px;
+      padding-left: 20px;
     }
-    .grocery-item {
-        font-family: 'Roboto', sans-serif;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    h3 {
-        font-weight: 500;
-        font-size: 18px;
-    }
-    a {
-        text-decoration: none;
-        color: #2c3e50;
-    }
-    a:hover {
+      .grocery-links {
+        margin-top: 20px;
+      }
+
+      .grocery-links h3 {
+        margin-bottom: 10px;
+      }
+
+      .grocery-links ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .grocery-links ul li {
+        padding-left: 20px;
+        margin-bottom: 5px;
+      }
+
+      .grocery-links ul li a {
         text-decoration: underline;
-    }
-    p {
-        font-size: 14px;
-        color: #7f8c8d;
-    }
+      }
     `;
 
     constructor() {
@@ -47,6 +47,16 @@ export class GroceryLink extends HTMLElement {
         shadow(this)
             .template(GroceryLink.template)
             .styles(GroceryLink.styles);
+
+        // Access the attributes and populate slots accordingly
+        const store = this.getAttribute('store') || 'Unknown Store';
+        const cost = this.getAttribute('cost') || '$0.00';
+        const url = this.getAttribute('url') || '#';
+
+        // Update the slots with the attributes
+        this.shadowRoot.querySelector('slot[name="store"]').innerHTML = store;
+        this.shadowRoot.querySelector('slot[name="cost"]').innerHTML = cost;
+        this.shadowRoot.querySelector('a').setAttribute('href', url);
     }
 }
 customElements.define('grocery-link', GroceryLink);

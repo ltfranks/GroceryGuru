@@ -83,16 +83,24 @@
     <p>For fluffier pancakes, let the batter rest for 10 minutes before cooking.</p>
 </div>
 
-<div class="grocery-links">
+<div>
     <h3>Where to Buy</h3>
     <ul>
+        <!-- custom element grocery-link in grocery-link.js -->
         <grocery-link store="Trader Joe's" url="https://www.traderjoes.com/home" cost="$12.50"></grocery-link>
         <grocery-link store="Vons" url="https://www.vons.com/" cost="$11.80"></grocery-link>
         <grocery-link store="Kroger" url="https://www.kroger.com/" cost="$13.00"></grocery-link>
     </ul>
 </div>
 
-<script src="../scripts/grocery-link.js" type="module"></script>
+<script type="module">
+    import { define } from "@calpoly/mustang";
+    import { GroceryLink } from "../scripts/grocery-link.js";
+
+    define({
+        "grocery-link": GroceryLink
+    })
+</script>
 
 
 </body>
