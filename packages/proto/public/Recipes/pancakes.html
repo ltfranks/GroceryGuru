@@ -11,6 +11,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
+    <script type="importmap">
+        {
+            "imports": {
+                "@calpoly/mustang": "https://unpkg.com/@calpoly/mustang"
+            }
+        }
+    </script>
+    <script type="module">
+        import { define } from "@calpoly/mustang";
+        import { GroceryLink } from "../scripts/grocery-link.js";
+        import {HeaderElement} from "../scripts/header.js";
+
+        define({
+            "grocery-link": GroceryLink,
+            "all-header": HeaderElement
+        })
+        HeaderElement.initializeOnce()
+
+    </script>
+
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/tokens.css">
     <link rel="stylesheet" href="../styles/page.css"/>
@@ -18,18 +38,7 @@
     <link rel="stylesheet" href="../styles/recipe_layout.css">
 </head>
 <body>
-<header class="header_layout">
-    <h1>Grocery Guru</h1>
-    <nav class="nav_links">
-        <a href="../index.html">Home</a>
-        <a href="../nav_links/vendors.html">Vendors</a>
-        <a href="../nav_links/recipes.html">Recipes</a>
-        <a href="../nav_links/about.html">About</a>
-    </nav>
-    <div class="login">
-        <a href="../nav_links/login.html">Login</a>
-    </div>
-</header>
+<all-header></all-header>
 <div class="container">
     <div class="recipe-header">
         <h1>Pancakes</h1>
@@ -75,14 +84,18 @@
     <p>For fluffier pancakes, let the batter rest for 10 minutes before cooking.</p>
 </div>
 
-<div class="grocery-links">
+<div>
     <h3>Where to Buy</h3>
     <ul>
-        <li><a href="https://www.target.com/">Target</a> - Cost: $7.50</li>
-        <li><a href="https://www.wholefoods.com/">Whole Foods</a> - Cost: $9.00</li>
-        <li><a href="https://www.walmart.com/">Walmart</a> - Cost: $6.80</li>
+        <!-- custom element grocery-link in grocery-link.js -->
+        <grocery-link store="Trader Joe's" url="https://www.traderjoes.com/home" cost="$12.50"></grocery-link>
+        <grocery-link store="Vons" url="https://www.vons.com/" cost="$11.80"></grocery-link>
+        <grocery-link store="Kroger" url="https://www.kroger.com/" cost="$13.00"></grocery-link>
     </ul>
 </div>
+
+
+
 
 </body>
 </html>

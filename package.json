@@ -10,5 +10,8 @@
   "description": "",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@calpoly/mustang": "^1.0.9"
+  }
 }
