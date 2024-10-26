@@ -44,8 +44,8 @@
 
 body.dark-mode {
     /* Tailwind dark mode colors */
-    --color-background-header: #1f2937;
-    --color-background-page: green;
+    --color-background-header: #3f3f3f;
+    --color-background-page: #575757;
     --color-text: white;
     --color-link: var(--color-text);
     --color-text-inverted: #ffffff;

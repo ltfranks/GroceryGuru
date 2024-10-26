@@ -22,10 +22,12 @@
         import { define } from "@calpoly/mustang";
         import { GroceryLink } from "../scripts/grocery-link.js";
         import {HeaderElement} from "../scripts/header.js";
+        import {RecipeCard} from "../scripts/recipe-card.js";
 
         define({
             "grocery-link": GroceryLink,
-            "all-header": HeaderElement
+            "all-header": HeaderElement,
+            "recipe-card": RecipeCard
         })
         HeaderElement.initializeOnce()
 
@@ -39,50 +41,29 @@
 </head>
 <body>
 <all-header></all-header>
-<div class="container">
-    <div class="recipe-header">
-        <h1>Pancakes</h1>
-        <div class="details">
-            <span>6 servings</span>
-            <span>Prep time: 15 minutes</span>
-        </div>
-        <div class="recipe-image">
-            <img src="../images/pancakes_plated.jpg" alt="Pancakes">
-        </div>
-    </div>
-</div>
-
-<div class="recipe-body">
-    <div class="ingredients">
-        <h2>Ingredients</h2>
-        <ul>
-            <li>1 1/2 cups all-purpose flour</li>
-            <li>3 1/2 tsp baking powder</li>
-            <li>1 tsp salt</li>
-            <li>1 tbsp white sugar</li>
-            <li>1 1/4 cups milk</li>
-            <li>1 egg</li>
-            <li>3 tbsp melted butter</li>
-            <li>Maple syrup for serving</li>
-        </ul>
-    </div>
-
-    <div class="directions">
-        <h2>Directions</h2>
-        <ol>
-            <li>In a large bowl, sift together the flour, baking powder, salt, and sugar.</li>
-            <li>Make a well in the center, and pour in the milk, egg, and melted butter. Mix until smooth.</li>
-            <li>Heat a lightly oiled griddle or frying pan over medium-high heat.</li>
-            <li>Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake.</li>
-            <li>Brown on both sides and serve hot with maple syrup.</li>
-        </ol>
-    </div>
-</div>
-
-<div class="recipe-notes">
-    <h3>Notes</h3>
-    <p>For fluffier pancakes, let the batter rest for 10 minutes before cooking.</p>
-</div>
+<recipe-card title="Pancakes" servings="6 servings" prep-time="Prep time: 15 minutes" image-url="../images/pancakes_plated.jpg">
+    <span slot="title">Pancakes</span>
+    <span slot="servings">6 servings</span>
+    <span slot="prep-time">Prep time: 15 minutes</span>
+    <ul slot="ingredients">
+        <li>1 1/2 cups all-purpose floor</li>
+        <li>3 1/2 tsp baking powder</li>
+        <li>1 tsp salt</li>
+        <li>1 tbsp white sugar</li>
+        <li>1 1/4 cups milk</li>
+        <li>1 egg</li>
+        <li>3 tbsp melted butter</li>
+        <li>Maple syrup for serving</li>
+    </ul>
+    <ol slot="directions">
+        <li>In a large bowl, sift together the flour, baking powder, salt, and sugar.</li>
+        <li>Make a well in the center, and pour in the milk, egg, and melted butter. Mix until smooth.</li>
+        <li>Heat a lightly oiled griddle or frying pan over medium-high heat.</li>
+        <li>Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake.</li>
+        <li>Brown on both sides and serve hot with maple syrup.</li>
+    </ol>
+    <p slot="notes">For fluffier pancakes, let the batter rest for 10 minutes before cooking.</p>
+</recipe-card>
 
 <div>
     <h3>Where to Buy</h3>
@@ -93,9 +74,5 @@
         <grocery-link store="Kroger" url="https://www.kroger.com/" cost="$13.00"></grocery-link>
     </ul>
 </div>
-
-
-
-
 </body>
 </html>
