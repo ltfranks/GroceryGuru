@@ -52,4 +52,24 @@ function get(id) {
     throw new Error(`Error fetching recipe: ${err}`);
   });
 }
-var recipe_svc_mongo_default = { index, get };
+function create(json) {
+  const t = new RecipeModel(json);
+  return t.save();
+}
+function update(id, recipe) {
+  return RecipeModel.findOneAndUpdate({ id }, recipe, {
+    new: true
+    // returns new value of JSON
+  }).then((updated) => {
+    if (!updated) throw `${id} not updated`;
+    else return updated;
+  });
+}
+function remove(id) {
+  return RecipeModel.findOneAndDelete({ id }).then(
+    (deleted) => {
+      if (!deleted) throw `${id} not deleted`;
+    }
+  );
+}
+var recipe_svc_mongo_default = { index, get, create, update, remove };

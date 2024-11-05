@@ -1,4 +1,4 @@
-// src/models/recipe_model.ts
+// src/models/recipe.ts
 export interface Ingredient {
     itemName: string;
     quantity: number;

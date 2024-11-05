@@ -2,6 +2,7 @@
   {
     "id": "pancakes_001",
     "name": "Pancakes",
+    "store": "ralphs",
     "servings": "6 servings",
     "prepTime": "15 minutes",
     "ingredients": [

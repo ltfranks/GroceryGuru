@@ -1,6 +1,6 @@
 // @ts-ignore
 import {Schema, model} from "mongoose";
-import {Recipe} from "../models/recipe_model";
+import {Recipe} from "../models/recipe";
 
 const IngredientSchema = new Schema({
     itemName: {type: String, required: true},
@@ -23,7 +23,7 @@ const RecipeSchema = new Schema(
 
 const RecipeModel = model<Recipe>("Profile", RecipeSchema);
 
-function index(): Promise<Recipe>{
+function index(): Promise<Recipe[]>{
     return RecipeModel.find();
 }
 
@@ -40,4 +40,29 @@ function get(id: string): Promise<Recipe | null> {
         });
 }
 
-export default { index, get };
+function create(json: Recipe): Promise<Recipe> {
+    const t = new RecipeModel(json);
+    return t.save();
+}
+
+function update(
+    id: String,
+    recipe: Partial<Recipe>
+): Promise<Recipe> {
+    return RecipeModel.findOneAndUpdate({ id }, recipe, {
+        new: true // returns new value of JSON
+    }).then((updated: any) => {
+        if (!updated) throw `${id} not updated`;
+        else return updated as Recipe;
+    });
+}
+
+function remove(id: String): Promise<void> {
+    return RecipeModel.findOneAndDelete({ id }).then(
+        (deleted:any) => {
+            if (!deleted) throw `${id} not deleted`;
+        }
+    );
+}
+
+export default { index, get, create, update, remove };
