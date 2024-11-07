@@ -1,55 +1,65 @@
-import { html, css, shadow } from "@calpoly/mustang";
+import {html, css, shadow} from "@calpoly/mustang";
 
 export class RecipeCard extends HTMLElement {
 
-    static template = html`<template>
-        <div class="container">
-            <div class="recipe-header">
-                <h1><slot name="title">Recipe Title</slot></h1>
-                <div class="details">
-                    <span><slot name="servings">Servings</slot></span>
-                    <span><slot name="prep-time">Prep time</slot></span>
-                </div>
-                <div class="recipe-image">
-                    <img src="#" alt="Recipe Image" />
-                </div>
-            </div>
+    get src() {
+        return this.getAttribute("src")
+    }
 
-            <div class="recipe-body">
-                <div class="ingredients">
-                    <h2>Ingredients</h2>
-                    <ul>
-                        <slot name="ingredients">
-                            <li>Ingredient 1</li>
-                            <li>Ingredient 2</li>
-                        </slot>
-                    </ul>
+    static template = html`
+        <template>
+            <div class="container">
+                <div class="recipe-header">
+                    <h1>
+                        <slot name="title">Recipe Title</slot>
+                    </h1>
+                    <div class="details">
+                        <span><slot name="servings">Servings</slot></span>
+                        <span><slot name="prep-time">Prep time</slot></span>
+                    </div>
+                    <div class="recipe-image">
+                        <img src="#" alt="Recipe Image"/>
+                    </div>
                 </div>
 
-                <div class="directions">
-                    <h2>Directions</h2>
-                    <ol>
-                        <slot name="directions">
-                            <li>Step 1</li>
-                            <li>Step 2</li>
-                        </slot>
-                    </ol>
+                <div class="recipe-body">
+                    <div class="ingredients">
+                        <h2>Ingredients</h2>
+                        <ul>
+                            <slot name="ingredients">
+                                <li>Ingredient 1</li>
+                                <li>Ingredient 2</li>
+                            </slot>
+                        </ul>
+                    </div>
+
+                    <div class="directions">
+                        <h2>Directions</h2>
+                        <ol>
+                            <slot name="directions">
+                                <li>Step 1</li>
+                                <li>Step 2</li>
+                            </slot>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="recipe-notes">
+                    <h3>Notes</h3>
+                    <p>
+                        <slot name="notes">Add any notes here.</slot>
+                    </p>
                 </div>
             </div>
-
-            <div class="recipe-notes">
-                <h3>Notes</h3>
-                <p><slot name="notes">Add any notes here.</slot></p>
-            </div>
-        </div>
-    </template>`;
+        </template>`;
 
     static styles = css`
       :host {
         display: block;
         margin-bottom: 20px;
-        
+
       }
+
       .container {
         max-width: 800px;
         margin: 0 auto;
@@ -129,5 +139,50 @@ export class RecipeCard extends HTMLElement {
         this.shadowRoot.querySelector('.recipe-image img').setAttribute('src', imageUrl);
         this.shadowRoot.querySelector('.recipe-image img').setAttribute('alt', `${title} image`);
     }
+
+    connectedCallback() {
+        if (this.src) this.hydrate(this.src);
+    }
+
+    // fetches the data from our REST API
+    hydrate(url) {
+        fetch(url)
+            .then((res) => {
+                if (res.status !== 200) throw `Status: ${res.status}`;
+                return res.json();
+            })
+            .then((json) => this.renderSlots(json))
+            .catch((error) =>
+                console.log(`Failed to render data ${url}:`, error)
+            );
+    }
+
+    renderSlots(json) {
+        const entries = Object.entries(json);
+        const fragment = document.createDocumentFragment();
+
+        entries.forEach(([key, value]) => {
+            if (Array.isArray(value)) {
+                const listElement = document.createElement("ul");
+                listElement.slot = key;
+                value.forEach((item) => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = item;
+                    listElement.appendChild(listItem);
+                });
+                fragment.appendChild(listElement);
+            } else {
+                const spanElement = document.createElement("span");
+                spanElement.slot = key;
+                spanElement.textContent = value;
+                fragment.appendChild(spanElement);
+            }
+        });
+
+        this.replaceChildren(fragment);
+    }
+
+
 }
+
 customElements.define('recipe-card', RecipeCard);

@@ -30,7 +30,8 @@ const defaults = {
   ],
   styles: [],
   scripts: [
-    `import { define } from "@calpoly/mustang";
+    `
+    import { define } from "@calpoly/mustang";
     import { HeaderElement } from "/scripts/header.js";
 
     define({

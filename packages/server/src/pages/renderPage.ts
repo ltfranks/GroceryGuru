@@ -1,5 +1,5 @@
 // @ts-ignore
-import { PageParts, renderWithDefaults } from "@calpoly/mustang/server";
+import {PageParts, renderWithDefaults} from "@calpoly/mustang/server";
 
 const defaults: PageParts = {
     stylesheets: [
@@ -9,7 +9,8 @@ const defaults: PageParts = {
     ],
     styles: [],
     scripts: [
-        `import { define } from "@calpoly/mustang";
+        `
+    import { define } from "@calpoly/mustang";
     import { HeaderElement } from "/scripts/header.js";
 
     define({
