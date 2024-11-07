@@ -41,6 +41,7 @@ class Recipe {
   render() {
     return (0, import_renderPage.default)({
       body: this.renderBody(),
+      stylesheets: ["/styles/recipe_layout.css"],
       scripts: [
         `import { define } from "@calpoly/mustang";
                  import { RecipeCard } from "/scripts/recipe-card.js";
@@ -54,27 +55,15 @@ class Recipe {
   renderBody() {
     const { name, servings, prepTime } = this.data;
     return import_server.html`
-        <body>
-        <main class="recipe-page">
-            <recipe-card
-                src="/api/recipes/pancakes_001"
-                title="${name}"
-                servings="${servings}"
-                prep-time="${prepTime}"
-                image-url="/path/to/image.jpg">
-                <!-- Content inside the slots can be removed or commented out -->
-            </recipe-card>
-        </main>
-        </body>
-    `;
-  }
-  renderIngredient(ingredient) {
-    return import_server.html`
-            <li>${ingredient.quantity} ${ingredient.unit} of ${ingredient.itemName}</li>`;
-  }
-  renderDirection(step, stepNumber) {
-    return import_server.html`
-            <li>Step ${stepNumber}: ${step}</li>`;
+            <body>
+            <main class="recipe-page">
+                <recipe-card
+                        src="/api/recipes/pancakes_001"
+                    <!-- Content inside the slots can be removed or commented out -->
+                </recipe-card>
+            </main>
+            </body>
+        `;
   }
 }
 // Annotate the CommonJS export names for ESM import in node:

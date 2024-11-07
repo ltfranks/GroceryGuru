@@ -11,11 +11,11 @@ export class RecipeCard extends HTMLElement {
             <div class="container">
                 <div class="recipe-header">
                     <h1>
-                        <slot name="title">Recipe Title</slot>
+                        <slot name="name">Recipe Title</slot>
                     </h1>
                     <div class="details">
-                        <span><slot name="servings">Servings</slot></span>
-                        <span><slot name="prep-time">Prep time</slot></span>
+                        <span><slot name="servings"></slot></span>
+                        <span><slot name="prepTime">Prep time</slot></span>
                     </div>
                     <div class="recipe-image">
                         <img src="#" alt="Recipe Image"/>
@@ -27,8 +27,6 @@ export class RecipeCard extends HTMLElement {
                         <h2>Ingredients</h2>
                         <ul>
                             <slot name="ingredients">
-                                <li>Ingredient 1</li>
-                                <li>Ingredient 2</li>
                             </slot>
                         </ul>
                     </div>
@@ -36,7 +34,7 @@ export class RecipeCard extends HTMLElement {
                     <div class="directions">
                         <h2>Directions</h2>
                         <ol>
-                            <slot name="directions">
+                            <slot name="instructions">
                                 <li>Step 1</li>
                                 <li>Step 2</li>
                             </slot>
@@ -125,19 +123,6 @@ export class RecipeCard extends HTMLElement {
         shadow(this)
             .template(RecipeCard.template)
             .styles(RecipeCard.styles);
-
-        // Default attribute values if not provided
-        const title = this.getAttribute('title') || 'Untitled Recipe';
-        const servings = this.getAttribute('servings') || '0 servings';
-        const prepTime = this.getAttribute('prep-time') || '0 minutes';
-        const imageUrl = this.getAttribute('image-url') || '#';
-
-        // Setting the slot content and image attributes
-        this.shadowRoot.querySelector('slot[name="title"]').innerHTML = title;
-        this.shadowRoot.querySelector('slot[name="servings"]').innerHTML = servings;
-        this.shadowRoot.querySelector('slot[name="prep-time"]').innerHTML = prepTime;
-        this.shadowRoot.querySelector('.recipe-image img').setAttribute('src', imageUrl);
-        this.shadowRoot.querySelector('.recipe-image img').setAttribute('alt', `${title} image`);
     }
 
     connectedCallback() {
@@ -159,29 +144,43 @@ export class RecipeCard extends HTMLElement {
 
     renderSlots(json) {
         const entries = Object.entries(json);
-        const fragment = document.createDocumentFragment();
 
-        entries.forEach(([key, value]) => {
+        // Function to generate elements for each key-value pair
+        const toSlot = ([key, value]) => {
+            // Handle arrays (like ingredients or instructions)
             if (Array.isArray(value)) {
-                const listElement = document.createElement("ul");
-                listElement.slot = key;
+                const listElement = document.createElement(key === "instructions" ? "ol" : "ul");
                 value.forEach((item) => {
                     const listItem = document.createElement("li");
-                    listItem.textContent = item;
+
+                    // Handle object items in the array (e.g. ingredients details)
+                    if (typeof item === "object" && item !== null) {
+                        const { itemName, quantity, unit } = item;
+                        listItem.textContent = `${quantity} ${unit} ${itemName}`;
+                    } else {
+                        // For string items in the instructions array
+                        listItem.textContent = item;
+                    }
                     listElement.appendChild(listItem);
                 });
-                fragment.appendChild(listElement);
-            } else {
-                const spanElement = document.createElement("span");
-                spanElement.slot = key;
-                spanElement.textContent = value;
-                fragment.appendChild(spanElement);
+                listElement.setAttribute("slot", key);
+                return listElement;
             }
-        });
 
+            // Default case for strings, numbers, and other primitives
+            const spanElement = document.createElement("span");
+            spanElement.textContent = String(value);
+            spanElement.setAttribute("slot", key);
+            return spanElement;
+        };
+
+        // Create an array of elements using map and append them to a fragment
+        const fragment = document.createDocumentFragment();
+        entries.map(toSlot).forEach((el) => fragment.appendChild(el));
+
+        // Replace the children of the custom element with the new fragment
         this.replaceChildren(fragment);
     }
-
 
 }
 

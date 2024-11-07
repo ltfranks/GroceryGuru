@@ -15,6 +15,7 @@ export class Recipe {
     render() {
         return renderPage({
             body: this.renderBody(),
+            stylesheets: ["/styles/recipe_layout.css"],
             scripts: [
                 `import { define } from "@calpoly/mustang";
                  import { RecipeCard } from "/scripts/recipe-card.js";
@@ -22,7 +23,6 @@ export class Recipe {
                  define({
                    "recipe-card": RecipeCard
                  });`
-
             ]
         });
     }
@@ -31,28 +31,14 @@ export class Recipe {
         const { name, servings, prepTime } = this.data;
 
         return html`
-        <body>
-        <main class="recipe-page">
-            <recipe-card
-                src="/api/recipes/pancakes_001"
-                title="${name}"
-                servings="${servings}"
-                prep-time="${prepTime}"
-                image-url="/path/to/image.jpg">
-                <!-- Content inside the slots can be removed or commented out -->
-            </recipe-card>
-        </main>
-        </body>
-    `;
-    }
-
-    renderIngredient(ingredient: Ingredient) {
-        return html`
-            <li>${ingredient.quantity} ${ingredient.unit} of ${ingredient.itemName}</li>`;
-    }
-
-    renderDirection(step: string, stepNumber: number) {
-        return html`
-            <li>Step ${stepNumber}: ${step}</li>`;
+            <body>
+            <main class="recipe-page">
+                <recipe-card
+                        src="/api/recipes/pancakes_001"
+                    <!-- Content inside the slots can be removed or commented out -->
+                </recipe-card>
+            </main>
+            </body>
+        `;
     }
 }
