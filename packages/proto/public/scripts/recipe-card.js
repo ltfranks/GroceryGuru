@@ -1,55 +1,63 @@
-import { html, css, shadow } from "@calpoly/mustang";
+import {html, css, shadow} from "@calpoly/mustang";
 
 export class RecipeCard extends HTMLElement {
 
-    static template = html`<template>
-        <div class="container">
-            <div class="recipe-header">
-                <h1><slot name="title">Recipe Title</slot></h1>
-                <div class="details">
-                    <span><slot name="servings">Servings</slot></span>
-                    <span><slot name="prep-time">Prep time</slot></span>
-                </div>
-                <div class="recipe-image">
-                    <img src="#" alt="Recipe Image" />
-                </div>
-            </div>
+    get src() {
+        return this.getAttribute("src")
+    }
 
-            <div class="recipe-body">
-                <div class="ingredients">
-                    <h2>Ingredients</h2>
-                    <ul>
-                        <slot name="ingredients">
-                            <li>Ingredient 1</li>
-                            <li>Ingredient 2</li>
-                        </slot>
-                    </ul>
+    static template = html`
+        <template>
+            <div class="container">
+                <div class="recipe-header">
+                    <h1>
+                        <slot name="name">Recipe Title</slot>
+                    </h1>
+                    <div class="details">
+                        <span><slot name="servings"></slot></span>
+                        <span><slot name="prepTime">Prep time</slot></span>
+                    </div>
+                    <div class="recipe-image">
+                        <img src="#" alt="Recipe Image"/>
+                    </div>
                 </div>
 
-                <div class="directions">
-                    <h2>Directions</h2>
-                    <ol>
-                        <slot name="directions">
-                            <li>Step 1</li>
-                            <li>Step 2</li>
-                        </slot>
-                    </ol>
+                <div class="recipe-body">
+                    <div class="ingredients">
+                        <h2>Ingredients</h2>
+                        <ul>
+                            <slot name="ingredients">
+                            </slot>
+                        </ul>
+                    </div>
+
+                    <div class="directions">
+                        <h2>Directions</h2>
+                        <ol>
+                            <slot name="instructions">
+                                <li>Step 1</li>
+                                <li>Step 2</li>
+                            </slot>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="recipe-notes">
+                    <h3>Notes</h3>
+                    <p>
+                        <slot name="notes">Add any notes here.</slot>
+                    </p>
                 </div>
             </div>
-
-            <div class="recipe-notes">
-                <h3>Notes</h3>
-                <p><slot name="notes">Add any notes here.</slot></p>
-            </div>
-        </div>
-    </template>`;
+        </template>`;
 
     static styles = css`
       :host {
         display: block;
         margin-bottom: 20px;
-        
+
       }
+
       .container {
         max-width: 800px;
         margin: 0 auto;
@@ -115,19 +123,65 @@ export class RecipeCard extends HTMLElement {
         shadow(this)
             .template(RecipeCard.template)
             .styles(RecipeCard.styles);
-
-        // Default attribute values if not provided
-        const title = this.getAttribute('title') || 'Untitled Recipe';
-        const servings = this.getAttribute('servings') || '0 servings';
-        const prepTime = this.getAttribute('prep-time') || '0 minutes';
-        const imageUrl = this.getAttribute('image-url') || '#';
-
-        // Setting the slot content and image attributes
-        this.shadowRoot.querySelector('slot[name="title"]').innerHTML = title;
-        this.shadowRoot.querySelector('slot[name="servings"]').innerHTML = servings;
-        this.shadowRoot.querySelector('slot[name="prep-time"]').innerHTML = prepTime;
-        this.shadowRoot.querySelector('.recipe-image img').setAttribute('src', imageUrl);
-        this.shadowRoot.querySelector('.recipe-image img').setAttribute('alt', `${title} image`);
     }
+
+    connectedCallback() {
+        if (this.src) this.hydrate(this.src);
+    }
+
+    // fetches the data from our REST API
+    hydrate(url) {
+        fetch(url)
+            .then((res) => {
+                if (res.status !== 200) throw `Status: ${res.status}`;
+                return res.json();
+            })
+            .then((json) => this.renderSlots(json))
+            .catch((error) =>
+                console.log(`Failed to render data ${url}:`, error)
+            );
+    }
+
+    renderSlots(json) {
+        const entries = Object.entries(json);
+
+        // Function to generate elements for each key-value pair
+        const toSlot = ([key, value]) => {
+            // Handle arrays (like ingredients or instructions)
+            if (Array.isArray(value)) {
+                const listElement = document.createElement(key === "instructions" ? "ol" : "ul");
+                value.forEach((item) => {
+                    const listItem = document.createElement("li");
+
+                    // Handle object items in the array (e.g. ingredients details)
+                    if (typeof item === "object" && item !== null) {
+                        const { itemName, quantity, unit } = item;
+                        listItem.textContent = `${quantity} ${unit} ${itemName}`;
+                    } else {
+                        // For string items in the instructions array
+                        listItem.textContent = item;
+                    }
+                    listElement.appendChild(listItem);
+                });
+                listElement.setAttribute("slot", key);
+                return listElement;
+            }
+
+            // Default case for strings, numbers, and other primitives
+            const spanElement = document.createElement("span");
+            spanElement.textContent = String(value);
+            spanElement.setAttribute("slot", key);
+            return spanElement;
+        };
+
+        // Create an array of elements using map and append them to a fragment
+        const fragment = document.createDocumentFragment();
+        entries.map(toSlot).forEach((el) => fragment.appendChild(el));
+
+        // Replace the children of the custom element with the new fragment
+        this.replaceChildren(fragment);
+    }
+
 }
+
 customElements.define('recipe-card', RecipeCard);

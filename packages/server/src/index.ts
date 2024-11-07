@@ -11,13 +11,26 @@ connect("cluster0"); // use your own db name here
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// gets static files from proto/public
 const staticDir = process.env.STATIC || "public";
+console.log("Serving static files from ", staticDir);
 app.use(express.static(staticDir));
+
 app.use(express.json());
 
 import recipes from "./routes/recipes";
-// tells express, anytime it receives any HTTP request for a path that starts with /api/recipes, it should use our new router
+// tells express, anytime it receives HTTP request for a path that starts with /api/recipes, it should use our new router
 app.use("/api/recipes", recipes)
+
+app.get("/hello", (_: Request, res: Response) => {
+    res.send(
+        `<h1>Hello!</h1>
+     <p>Server is up and running.</p>
+     <p>Serving static files from <code>${staticDir}</code>.</p>
+    `
+    );
+});
 
 app.get("/recipe/:recipeId", async(req: Request, res: Response) => {
     const { recipeId } = req.params;
