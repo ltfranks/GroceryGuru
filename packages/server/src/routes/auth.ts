@@ -49,17 +49,50 @@ router.post("/register", (req: Request, res: Response) => {
 });
 
 router.post("/login", (req: Request, res: Response) => {
-    const { username, password } = req.body; // from form
+    const { username, password } = req.body;
 
     if (!username || !password) {
         res.status(400).send("Bad request: Invalid input data.");
-    } else {
-        credentials
-            .verify(username, password)
-            .then((goodUser: string) => generateAccessToken(goodUser))
-            .then((token) => res.status(200).send({ token: token }))
-            .catch((error) => res.status(401).send("Unauthorized"));
+        return;
     }
+
+    console.log("Username:", username);
+    console.log("Password:", password);
+
+    credentials
+        .verify(username, password)
+        .then((goodUser: string) => {
+            console.log("User verified:", goodUser);
+            return generateAccessToken(goodUser);
+        })
+        .then((token) => {
+            console.log("Generated token:", token);
+            res.status(200).send({ token: token });
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            res.status(401).send("Unauthorized");
+        });
 });
+
+
+export function authenticateUser(
+    req: Request,
+    res: Response,
+    next: NextFunction
+) {
+    const authHeader = req.headers["authorization"];
+    //Getting the 2nd part of the auth header (the token)
+    const token = authHeader && authHeader.split(" ")[1];
+
+    if (!token) {
+        res.status(401).end();
+    } else {
+        jwt.verify(token, TOKEN_SECRET, (error, decoded) => {
+            if (decoded) next();
+            else res.status(403).end();
+        });
+    }
+}
 
 export default router;

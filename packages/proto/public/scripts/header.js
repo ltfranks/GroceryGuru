@@ -1,4 +1,4 @@
-import {html, css, shadow, Dropdown, Events} from "@calpoly/mustang";
+import {html, css, shadow, Dropdown, Events, Observer} from "@calpoly/mustang";
 
 
 export class HeaderElement extends HTMLElement {
@@ -17,7 +17,12 @@ export class HeaderElement extends HTMLElement {
                         <input type="checkbox" autocomplete="off" class="dark-mode-switch" id="dark-mode-checkbox"/>
                         Dark mode
                     </label>
+                    
                 </div>
+                <a slot="actuator">
+                    Hello,
+                    <span id="userid"></span>
+                </a>
                 <div class="login">
                     <a href="nav_links/login.html">Login</a>
                 </div>
@@ -86,6 +91,19 @@ export class HeaderElement extends HTMLElement {
       }
     `;
 
+    get userid() {
+        // Return the text content of the #userid span
+        return this.shadowRoot.querySelector("#userid").textContent;
+    }
+
+    set userid(id) {
+        // Set the text content of the #userid span
+        const userIdElement = this.shadowRoot.querySelector("#userid");
+        if (userIdElement) {
+            userIdElement.textContent = id === "anonymous" ? "" : id;
+        }
+    }
+
     constructor() {
         super();
         shadow(this)
@@ -102,6 +120,16 @@ export class HeaderElement extends HTMLElement {
                 checked: event.target.checked
             })
         );
+    }
+
+    _authObserver = new Observer(this, "blazing:auth");
+
+    connectedCallback() {
+        this._authObserver.observe(({ user }) => {
+            if (user && user.username !== this.userid) {
+                this.userid = user.username;
+            }
+        });
     }
 
     static initializeOnce() {

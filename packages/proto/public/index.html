@@ -20,11 +20,12 @@
     </script>
 
     <script type="module">
-        import { define } from "@calpoly/mustang";
+        import { define, Auth } from "@calpoly/mustang";
         import {HeaderElement} from "./scripts/header.js";
 
         define({
-            "all-header": HeaderElement
+            "all-header": HeaderElement,
+            "mu-auth": Auth.Provider
         })
         HeaderElement.initializeOnce()
     </script>
@@ -36,6 +37,7 @@
     <link rel="stylesheet" href="/styles/home_layout.css">
 </head>
 <body>
+<mu-auth provides="blazing:auth">
     <all-header></all-header>
     <main>
         <section class="search-section">
@@ -54,5 +56,7 @@
             </div>
         </section>
     </main>
+</mu-auth>
+
 </body>
 </html>

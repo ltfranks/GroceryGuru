@@ -24,6 +24,9 @@ const credentialModel = model<Credential>(
     credentialSchema
 );
 
+// curl -X POST http://localhost:3000/auth/register \
+// -H "Content-Type: application/json" \
+// -d '{"username": "test", "password": "password"}'
 function create(username: string, password: string){
     return new Promise<Credential>((resolve, reject) => {
         if(!username || !password){
@@ -51,6 +54,9 @@ function create(username: string, password: string){
     });
 }
 
+// curl -X POST http://localhost:3000/auth/login \
+// -H "Content-Type: application/json" \
+// -d '{"username": "test", "password": "password"}'
 function verify(
     username: string,
     password: string
