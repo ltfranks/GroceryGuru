@@ -2,7 +2,7 @@
 import express, { Request, Response } from "express";
 import {Recipe} from "./pages/recipe";
 import Recipes_Mongo from "./services/recipe-svc-mongo"
-
+import auth from "./routes/auth";
 
 
 // add this import near the top
@@ -18,7 +18,7 @@ console.log("Serving static files from ", staticDir);
 app.use(express.static(staticDir));
 
 app.use(express.json());
-
+app.use("/auth", auth);
 import recipes from "./routes/recipes";
 // tells express, anytime it receives HTTP request for a path that starts with /api/recipes, it should use our new router
 app.use("/api/recipes", recipes)
