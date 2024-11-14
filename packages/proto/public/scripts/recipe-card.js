@@ -50,9 +50,8 @@ export class RecipeCard extends HTMLElement {
                         <slot name="notes">Add any notes here.</slot>
                     </p>
                 </div>
-
+                <button id="edit">Editor</button>
                 <section class="view">
-                    <button id="edit">Edit</button>
                     <!-- rest of the view here -->
                     <mu-form class="edit">
                         <label>
@@ -177,8 +176,8 @@ export class RecipeCard extends HTMLElement {
             this.submit(this.src, event.detail)
         );
         this.editButton.addEventListener("click", () => {
-            this.mode = "edit";
-            console.log("Mode set to:", this.mode); // Debugging line
+            this.mode = this.mode === "edit" ? "view" : "edit";
+            console.log("Mode toggled to:", this.mode); // Debugging line
         });
 
     }
