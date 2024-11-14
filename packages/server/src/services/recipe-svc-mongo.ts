@@ -1,4 +1,3 @@
-// @ts-ignore
 import {Schema, model} from "mongoose";
 import {Recipe} from "../models/recipe";
 

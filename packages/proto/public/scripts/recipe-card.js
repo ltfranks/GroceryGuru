@@ -1,6 +1,10 @@
-import {html, css, shadow} from "@calpoly/mustang";
+import {define, Form, InputArray, html, css, shadow} from "@calpoly/mustang";
 
 export class RecipeCard extends HTMLElement {
+    static uses = define({
+        "mu-form": Form.Element,
+        "input-array": InputArray.Element
+    });
 
     get src() {
         return this.getAttribute("src")
@@ -30,7 +34,6 @@ export class RecipeCard extends HTMLElement {
                             </slot>
                         </ul>
                     </div>
-
                     <div class="directions">
                         <h2>Directions</h2>
                         <ol>
@@ -41,21 +44,67 @@ export class RecipeCard extends HTMLElement {
                         </ol>
                     </div>
                 </div>
-
                 <div class="recipe-notes">
                     <h3>Notes</h3>
                     <p>
                         <slot name="notes">Add any notes here.</slot>
                     </p>
                 </div>
+
+                <section class="view">
+                    <button id="edit">Edit</button>
+                    <!-- rest of the view here -->
+                    <mu-form class="edit">
+                        <label>
+                            <span>Recipe Title</span>
+                            <input name="name"/>
+                        </label>
+                        <label>
+                            <span>Servings</span>
+                            <input name="servings"/>
+                        </label>
+                        <label>
+                            <span>Prep Time</span>
+                            <input name="prepTime"/>
+                        </label>
+                        <label>
+                            <span>Ingredients</span>
+                            <input-array name="ingredients">
+                                <span slot="label-add">Add an ingredient</span>
+                            </input-array>
+                        </label>
+                        <label>
+                            <span>Instructions</span>
+                            <input-array name="instructions">
+                                <span slot="label-add">Add an instruction</span>
+                            </input-array>
+                        </label>
+                        <label>
+                            <span>Notes</span>
+                            <textarea name="notes"></textarea>
+                        </label>
+                    </mu-form>
+                </section>
+                
             </div>
         </template>`;
 
     static styles = css`
       :host {
-        display: block;
+        display: contents;
         margin-bottom: 20px;
+      }
+      :host([mode="edit"]) {
+        --display-view-none: none;
+        --display-editor-none: block;
+      }
+      :host([mode="view"]) {
+        --display-view-none: block;
+        --display-editor-none: none;
+      }
 
+      section.view {
+        display: var(--display-view-none, block);
       }
 
       .container {
@@ -123,10 +172,36 @@ export class RecipeCard extends HTMLElement {
         shadow(this)
             .template(RecipeCard.template)
             .styles(RecipeCard.styles);
+        this.setAttribute("mode", "view"); // Set default mode to "view"
+        this.addEventListener("mu-form:submit", (event) =>
+            this.submit(this.src, event.detail)
+        );
+        this.editButton.addEventListener("click", () => {
+            this.mode = "edit";
+            console.log("Mode set to:", this.mode); // Debugging line
+        });
+
     }
 
     connectedCallback() {
         if (this.src) this.hydrate(this.src);
+    }
+
+
+    get form() {
+        return this.shadowRoot.querySelector("mu-form.edit");
+    }
+    get editButton() {
+        return this.shadowRoot.getElementById("edit");
+    }
+
+    // these modes allow the form to be viewable
+    get mode() {
+        return this.getAttribute("mode");
+    }
+
+    set mode(m) {
+        this.setAttribute("mode", m);
     }
 
     // fetches the data from our REST API
@@ -136,10 +211,29 @@ export class RecipeCard extends HTMLElement {
                 if (res.status !== 200) throw `Status: ${res.status}`;
                 return res.json();
             })
-            .then((json) => this.renderSlots(json))
+            .then((json) => {
+                this.renderSlots(json);
+                this.form.init = json;  // populate the form
+            })
             .catch((error) =>
                 console.log(`Failed to render data ${url}:`, error)
             );
+    }
+
+
+    submit(url, json) {
+        fetch(url, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(json)
+        })
+            .then((res) => res.json())
+            .then((json) => {
+                this.renderSlots(json);
+                this.form.init = json;
+                this.mode = "view"; // Switch back to view mode
+            })
+            .catch((error) => console.log("Failed to submit data:", error));
     }
 
     renderSlots(json) {
@@ -155,7 +249,7 @@ export class RecipeCard extends HTMLElement {
 
                     // Handle object items in the array (e.g. ingredients details)
                     if (typeof item === "object" && item !== null) {
-                        const { itemName, quantity, unit } = item;
+                        const {itemName, quantity, unit} = item;
                         listItem.textContent = `${quantity} ${unit} ${itemName}`;
                     } else {
                         // For string items in the instructions array

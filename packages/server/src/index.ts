@@ -25,7 +25,8 @@ app.use(express.json());
 app.use("/auth", auth);
 
 // Protected routes (example: recipes)
-app.use("/api/recipes", authenticateUser, recipes); // Protect /api/recipes with the authentication middleware
+app.use("/api/recipes", recipes);
+//app.use("/api/recipes", authenticateUser, recipes); // Protect /api/recipes with the authentication middleware
 
 // Example route to check if the server is running
 app.get("/hello", (_: Request, res: Response) => {
