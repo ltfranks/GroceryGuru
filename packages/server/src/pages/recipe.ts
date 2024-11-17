@@ -1,6 +1,7 @@
 // http://localhost:3000/recipe/pancakes_001
 // src/pages/recipe.ts
 import renderPage from "./renderPage";
+// @ts-ignore
 import { css, html } from "@calpoly/mustang/server";
 import { Recipe, Ingredient } from "../models/recipe"; // Import the Recipe and Ingredient models
 

@@ -1,3 +1,4 @@
+// @ts-ignore
 import {html} from "@calpoly/mustang/server";
 import renderPage from "./renderPage";
 
