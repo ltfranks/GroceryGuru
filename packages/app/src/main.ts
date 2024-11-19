@@ -5,16 +5,16 @@ import { Auth, define, History, Switch } from "@calpoly/mustang";
 import { html, LitElement } from "lit";
 import { HeaderElement } from "./components/header";
 import { HomeViewElement } from "./views/home-view";
+import {RecipeViewElement} from "./views/recipe-view";
 
 class AppElement extends LitElement {
     static uses = define({
-        "home-view": HomeViewElement
+        "home-view": HomeViewElement,
+        "recipe-view": RecipeViewElement
     });
 
-    protected render() {
-        return html`
-      <home-view></home-view>
-    `;
+    render() {
+        return html`<mu-switch></mu-switch>`;
     }
 
     connectedCallback(): void {
@@ -24,22 +24,16 @@ class AppElement extends LitElement {
 
 const routes = [
     {
-        path: "/app/recipe/:id",
+        path: "/app/recipes/:id",
         view: (params: Switch.Params) => html`
-            <recipe-view item-id=${params.id}></recipe-view>
-        `
-    },
-    {
-        path: "/app/item/:id",
-        view: (params: Switch.Params) => html`
-            <item-view item-id=${params.id}></item-view>
+            <recipe-view itemId="${params.id}"></recipe-view>
         `
     },
     {
         path: "/app",
         view: () => html`
-      <home-view></home-view>
-    `
+            <home-view></home-view>
+        `
     },
     {
         path: "/",
@@ -47,14 +41,16 @@ const routes = [
     }
 ];
 
+
 define({
     "mu-auth": Auth.Provider,
     "mu-history": History.Provider,
     "mu-switch": class AppSwitch extends Switch.Element {
         constructor() {
-            super(routes, "guru:history");
+            super(routes, "guru:history", "guru:auth");
         }
     },
     "grocery-guru-app": AppElement,
-    "all-header": HeaderElement
+    "all-header": HeaderElement,
+    "recipe-view": RecipeViewElement
 });

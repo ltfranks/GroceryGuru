@@ -50,6 +50,7 @@ export class HomeViewElement extends LitElement {
 
         // Iterate through vendors and items to find the cheapest matching item
         this.vendors.forEach((vendor) => {
+            // @ts-ignore
             vendor.items.forEach((item) => {
                 if (item.name.toLowerCase().includes(query)) {
                     if (!cheapestItem || item.price < cheapestItem.price) {
