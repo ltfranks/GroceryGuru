@@ -1,48 +1,71 @@
 // src/index.ts
 import express, { Request, Response } from "express";
-import {Recipe} from "./pages/recipe";
-import Recipes_Mongo from "./services/recipe-svc-mongo"
+import { Recipe } from "./pages/recipe";
+import Recipes_Mongo from "./services/recipe-svc-mongo";
+import auth, { authenticateUser } from "./routes/auth";
+import recipes from "./routes/recipes";
+import vendors from "./routes/vendors";
+import { connect } from "./services/mongo"; // Connect to the database
+import {LoginPage, RegistrationPage} from "./pages/auth"
 
-
-
-// add this import near the top
-import { connect } from "./services/mongo";
-connect("cluster0"); // use your own db name here
+// Connect to the database
+connect("cluster0"); // Use your own DB name here
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// gets static files from proto/public
+// Serve static files from the specified directory
 const staticDir = process.env.STATIC || "public";
 console.log("Serving static files from ", staticDir);
 app.use(express.static(staticDir));
 
+// Middleware to parse incoming JSON requests
 app.use(express.json());
 
-import recipes from "./routes/recipes";
-// tells express, anytime it receives HTTP request for a path that starts with /api/recipes, it should use our new router
-app.use("/api/recipes", recipes)
+// Authentication routes
+app.use("/auth", auth);
 
+// Protected routes (example: recipes)
+app.use("/api/recipes", recipes);
+//app.use("/api/recipes", authenticateUser, recipes); // Protect /api/recipes with the authentication middleware
+
+// Vendors API routes
+app.use("/api/vendors", vendors);
+
+// Example route to check if the server is running
 app.get("/hello", (_: Request, res: Response) => {
     res.send(
         `<h1>Hello!</h1>
-     <p>Server is up and running.</p>
-     <p>Serving static files from <code>${staticDir}</code>.</p>
-    `
+         <p>Server is up and running.</p>
+         <p>Serving static files from <code>${staticDir}</code>.</p>
+        `
     );
 });
 
-app.get("/recipe/:recipeId", async(req: Request, res: Response) => {
-    const { recipeId } = req.params;
-    Recipes_Mongo.get(recipeId).then((data) => {
-        // creates instance of Recipe for res
-        // @ts-ignore
-        const recipePage = new Recipe(data);
-        res.set("Content-Type", "text/html").send(recipePage.render()) // calls render on instance^
-    })
+app.get("/login", (req: Request, res: Response) => {
+    const page = new LoginPage();
+    res.set("Content-Type", "text/html").send(page.render());
 });
 
+app.get("/register", (req: Request, res: Response) => {
+    const page = new RegistrationPage();
+    res.set("Content-Type", "text/html").send(page.render());
+});
+// Route to get a recipe by ID and render it
+app.get("/recipe/:recipeId", async (req: Request, res: Response) => {
+    const { recipeId } = req.params;
+    try {
+        const data = await Recipes_Mongo.get(recipeId);
+        // Create an instance of Recipe for the response
+        // @ts-ignore
+        const recipePage = new Recipe(data);
+        res.set("Content-Type", "text/html").send(recipePage.render()); // Call render on the instance
+    } catch (error) {
+        res.status(500).send("Error fetching recipe.");
+    }
+});
+
+// Start the server
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
-

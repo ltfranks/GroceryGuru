@@ -12,6 +12,7 @@
     "packages/*"
   ],
   "dependencies": {
-    "@calpoly/mustang": "^1.0.9"
+    "@calpoly/mustang": "^1.0.9",
+    "bcryptjs": "^2.4.3"
   }
 }

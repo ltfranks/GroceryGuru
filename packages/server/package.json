@@ -8,13 +8,17 @@
     "start": "npm run build && npm run start:node",
     "start:node": "node dist/index.js",
     "start:proto": "cross-env STATIC=../proto/public npm run start",
+    "start:app": "cross-env STATIC=../app/dist npm run start",
     "check": "tsc --noEmit"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/mongoose": "^5.11.96",
     "@types/node": "^22.7.9",
     "cross-env": "^7.0.3",
     "esbuild-node-tsc": "^2.0.5",
@@ -22,10 +26,12 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
-    "@calpoly/mustang": "^1.0.10",
+    "@calpoly/mustang": "^1.0.12",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.10.0",
-    "mongoose": "^8.7.3"
+    "mongoose": "^8.8.1"
   }
 }

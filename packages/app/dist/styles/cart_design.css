@@ -1,0 +1,104 @@
+/* General styling */
+body {
+    font-family: var(--font-family-body);
+    background-color: var(--color-background-page);
+    margin: 0;
+    padding: var(--size-spacing-large);
+    text-align: center;
+}
+
+/* Container for the entire shopping section */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Search Section Styling */
+.search_section {
+    margin-bottom: var(--size-spacing-xlarge);
+}
+
+.search_section h1 {
+    margin-bottom: var(--size-spacing-large);
+    font-size: var(--size-type-large);
+}
+
+.search_input {
+    padding: var(--size-spacing-medium);
+    width: 250px;
+    margin-right: var(--size-spacing-medium);
+    border-radius: var(--size-spacing-small);
+    font-size: var(--font-size-medium);
+}
+
+.search_button {
+    padding: var(--size-spacing-medium) var(--size-spacing-large);
+    background-color: var(--color-accent);
+    color: var(--color-text-inverted);
+    border: none;
+    border-radius: var(--size-spacing-small);
+    cursor: not-allowed;
+    font-size: var(--font-size-medium);
+}
+
+.search_button:hover {
+    background-color: var(--color-accent-inverted);
+}
+
+/* Cart Section Styling */
+.cart_section {
+    background-color: var(--color-text-inverted);
+    padding: var(--size-spacing-large);
+    border-radius: var(--size-spacing-large);
+}
+
+.cart_section h2 {
+    margin-bottom: var(--size-spacing-large);
+    font-size: var(--size-type-mlarge);
+    color: var(--color-text);
+}
+
+/* Cart Items Styling */
+.cart_item {
+    /* Uses flex as it layers down */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-background-header);
+    padding: var(--size-spacing-medium);
+    margin-bottom: var(--size-spacing-medium);
+    border-radius: var(--size-spacing-small);
+}
+
+.item_name {
+    font-size: var(--font-size-medium);
+    color: var(--color-text-inverted);
+}
+
+.remove_button {
+    background-color: var(--color-link);
+    color: var(--color-text-inverted);
+    padding: var(--size-spacing-small) var(--size-spacing-medium);
+    border: none;
+    border-radius: var(--size-spacing-small);
+    cursor: not-allowed;
+    font-size: var(--font-size-small-medium);
+}
+
+.remove_button:hover {
+    background-color: var(--color-link-inverted);
+}
+
+/* Cart Summary Section */
+.cart_summary {
+    margin-top: var(--size-spacing-large);
+    background-color: var(--color-background-header);
+    padding: var(--size-spacing-medium);
+    border-radius: var(--size-spacing-small);
+}
+
+.cart_summary p {
+    font-size: var(--font-size-medium);
+    color: var(--color-text-inverted);
+    margin: var(--size-spacing-small) 0;
+}
