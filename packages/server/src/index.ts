@@ -4,6 +4,7 @@ import { Recipe } from "./pages/recipe";
 import Recipes_Mongo from "./services/recipe-svc-mongo";
 import auth, { authenticateUser } from "./routes/auth";
 import recipes from "./routes/recipes";
+import vendors from "./routes/vendors";
 import { connect } from "./services/mongo"; // Connect to the database
 import {LoginPage, RegistrationPage} from "./pages/auth"
 
@@ -27,6 +28,9 @@ app.use("/auth", auth);
 // Protected routes (example: recipes)
 app.use("/api/recipes", recipes);
 //app.use("/api/recipes", authenticateUser, recipes); // Protect /api/recipes with the authentication middleware
+
+// Vendors API routes
+app.use("/api/vendors", vendors);
 
 // Example route to check if the server is running
 app.get("/hello", (_: Request, res: Response) => {

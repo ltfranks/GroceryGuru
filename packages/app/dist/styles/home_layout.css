@@ -1,0 +1,64 @@
+/* Layout for main content */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Layout for search section */
+.search-section {
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Layout for cart section */
+.cart-section {
+    margin-top: 20px;
+}
+
+#cart-items {
+    margin-bottom: 20px;
+}
+
+/* Layout for individual cart items */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.cart-item p {
+    margin: 0;
+}
+
+.cart-item .remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Layout for cart summary */
+.cart-summary {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}

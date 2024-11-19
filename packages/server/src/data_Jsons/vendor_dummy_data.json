@@ -1,0 +1,108 @@
+[
+  {
+    "id": "2",
+    "name": "Budget Grocery",
+    "state": "Texas",
+    "city": "Austin",
+    "streetAddress": "456 Budget Lane",
+    "items": [
+      {
+        "id": "3",
+        "name": "Chicken Breast",
+        "price": 5.99,
+        "category": "Meat",
+        "storeId": "2"
+      },
+      {
+        "id": "4",
+        "name": "Whole Wheat Bread",
+        "price": 2.49,
+        "category": "Bakery",
+        "storeId": "2"
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "name": "Fresh Market",
+    "state": "California",
+    "city": "San Francisco",
+    "streetAddress": "123 Market Street",
+    "items": [
+      {
+        "id": "1",
+        "name": "Organic Bananas",
+        "price": 0.99,
+        "category": "Fruits",
+        "storeId": "1"
+      },
+      {
+        "id": "2",
+        "name": "Almond Milk",
+        "price": 3.49,
+        "category": "Dairy",
+        "storeId": "1"
+      },
+      {
+        "id": "7",
+        "name": "Chicken Breast",
+        "price": 4.99,
+        "category": "Meat",
+        "storeId": "1"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Health Foods Co.",
+    "state": "New York",
+    "city": "New York",
+    "streetAddress": "789 Health Ave",
+    "items": [
+      {
+        "id": "5",
+        "name": "Quinoa",
+        "price": 4.99,
+        "category": "Grains",
+        "storeId": "3"
+      },
+      {
+        "id": "6",
+        "name": "Greek Yogurt",
+        "price": 1.99,
+        "category": "Dairy",
+        "storeId": "3"
+      },
+      {
+        "id": "8",
+        "name": "Chicken Breast",
+        "price": 6.49,
+        "category": "Meat",
+        "storeId": "3"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Local Farmers Market",
+    "state": "Ohio",
+    "city": "Columbus",
+    "streetAddress": "321 Market Street",
+    "items": [
+      {
+        "id": "9",
+        "name": "Chicken Breast",
+        "price": 4.49,
+        "category": "Meat",
+        "storeId": "4"
+      },
+      {
+        "id": "10",
+        "name": "Brown Eggs",
+        "price": 2.99,
+        "category": "Dairy",
+        "storeId": "4"
+      }
+    ]
+  }
+]

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grocery Guru</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+
+    <script type="module">
+        import {define, Auth, Events} from "@calpoly/mustang";
+        import {HeaderElement} from "./src/components/header";
+
+        define({
+            "all-header": HeaderElement,
+            "mu-auth": Auth.Provider
+        });
+        window.relayEvent = Events.relay;
+    </script>
+
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/tokens.css">
+    <link rel="stylesheet" href="/styles/page.css"/>
+    <link rel="stylesheet" href="/styles/header_layout.css">
+    <link rel="stylesheet" href="/styles/home_layout.css">
+    <script type="module" src="/src/main"></script>
+</head>
+<body>
+<mu-history provides="guru:history">
+    <mu-auth provides="blazing:auth">
+        <all-header></all-header>
+        <grocery-guru-app></grocery-guru-app>
+        <mu-switch></mu-switch>
+    </mu-auth>
+</mu-history>
+</body>
+</html>
