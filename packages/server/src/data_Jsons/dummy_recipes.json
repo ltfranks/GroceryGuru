@@ -1,0 +1,79 @@
+[
+  {
+    "id": "spaghetti_002",
+    "name": "Spaghetti Bolognese",
+    "store": "trader_joes",
+    "servings": "4 servings",
+    "prepTime": "30 minutes",
+    "ingredients": [
+      { "itemName": "Spaghetti", "quantity": 1, "unit": "lb" },
+      { "itemName": "Ground beef", "quantity": 1, "unit": "lb" },
+      { "itemName": "Onion", "quantity": 1, "unit": "piece" },
+      { "itemName": "Garlic cloves", "quantity": 2, "unit": "pieces" },
+      { "itemName": "Tomato sauce", "quantity": 16, "unit": "oz" },
+      { "itemName": "Olive oil", "quantity": 2, "unit": "tbsp" },
+      { "itemName": "Salt", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Black pepper", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Parmesan cheese", "quantity": 1, "unit": "serving" }
+    ],
+    "instructions": [
+      "Cook the spaghetti according to the package instructions. Drain and set aside.",
+      "Heat olive oil in a large pan over medium heat. Add diced onion and minced garlic. Sauté until softened.",
+      "Add ground beef to the pan and cook until browned. Drain excess fat.",
+      "Stir in tomato sauce, salt, and black pepper. Simmer for 10 minutes.",
+      "Serve the sauce over spaghetti and top with grated Parmesan cheese."
+    ],
+    "notes": "Add a pinch of red pepper flakes for a spicy kick."
+  },
+  {
+    "id": "caesar_salad_003",
+    "name": "Caesar Salad",
+    "store": "whole_foods",
+    "servings": "4 servings",
+    "prepTime": "20 minutes",
+    "ingredients": [
+      { "itemName": "Romaine lettuce", "quantity": 1, "unit": "head" },
+      { "itemName": "Croutons", "quantity": 1, "unit": "cup" },
+      { "itemName": "Parmesan cheese", "quantity": 0.5, "unit": "cup" },
+      { "itemName": "Caesar dressing", "quantity": 0.5, "unit": "cup" },
+      { "itemName": "Salt", "quantity": 0.25, "unit": "tsp" },
+      { "itemName": "Black pepper", "quantity": 0.25, "unit": "tsp" }
+    ],
+    "instructions": [
+      "Wash and dry the romaine lettuce. Chop into bite-sized pieces.",
+      "In a large bowl, toss the lettuce with Caesar dressing.",
+      "Add croutons and grated Parmesan cheese. Mix gently to combine.",
+      "Season with salt and black pepper to taste. Serve immediately."
+    ],
+    "notes": "For added protein, top with grilled chicken or shrimp."
+  },
+  {
+    "id": "chocolate_chip_cookies_004",
+    "name": "Chocolate Chip Cookies",
+    "store": "walmart",
+    "servings": "24 cookies",
+    "prepTime": "25 minutes",
+    "ingredients": [
+      { "itemName": "All-purpose flour", "quantity": 2.25, "unit": "cups" },
+      { "itemName": "Baking soda", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Salt", "quantity": 0.5, "unit": "tsp" },
+      { "itemName": "Unsalted butter", "quantity": 1, "unit": "cup" },
+      { "itemName": "White sugar", "quantity": 0.75, "unit": "cup" },
+      { "itemName": "Brown sugar", "quantity": 0.75, "unit": "cup" },
+      { "itemName": "Vanilla extract", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Eggs", "quantity": 2, "unit": "pieces" },
+      { "itemName": "Chocolate chips", "quantity": 2, "unit": "cups" }
+    ],
+    "instructions": [
+      "Preheat the oven to 375°F (190°C).",
+      "In a medium bowl, whisk together flour, baking soda, and salt.",
+      "In a large bowl, cream together the butter, white sugar, and brown sugar until smooth.",
+      "Beat in eggs one at a time, then stir in vanilla extract.",
+      "Gradually add the dry ingredients to the wet ingredients. Mix until just combined.",
+      "Fold in the chocolate chips.",
+      "Drop by spoonfuls onto ungreased baking sheets.",
+      "Bake for 8-10 minutes, or until edges are lightly browned. Cool on wire racks."
+    ],
+    "notes": "For chewier cookies, chill the dough for 30 minutes before baking."
+  }
+]
