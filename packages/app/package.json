@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "@calpoly/mustang": "^1.0.14",
-    "lit": "^3.2.1"
+    "lit": "^3.2.1",
+    "server": "^1.0.0"
   }
 }
