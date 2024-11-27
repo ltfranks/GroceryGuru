@@ -1,82 +1,37 @@
+// src/views/home-view.ts
 // @ts-ignore
-import { Auth, Observer } from "@calpoly/mustang";
+import { define, View } from "@calpoly/mustang";
 // @ts-ignore
-import { css, html, LitElement } from "lit";
+import { css, html } from "lit";
 // @ts-ignore
-import { state } from "lit/decorators.js";
+import { state, property } from "lit/decorators.js";
+import { Model } from "../model";
+import { Msg } from "../messages";
 
-// @ts-ignore
-import { Vendor, Item } from "./models/vendor"; // vendor.ts - model
-
-export class HomeViewElement extends LitElement {
+export class HomeViewElement extends View<Model, Msg> {
     @state()
     searchQuery: string = "";
 
-    @state()
-    totalCost: number = 0;
-
-    @state()
-    cartItems: Array<{ name: string; price: number; vendorName: string }> = [];
-
-    @state()
-    vendors: Array<Vendor> = [];
+    constructor() {
+        super("guru:model"); // Connect to mu-store
+    }
 
     connectedCallback() {
         super.connectedCallback();
-        this.hydrate();
-    }
-
-    hydrate() {
-        // Fetch vendor data from your backend API
-        fetch('/api/vendors')
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error(`Error fetching data: ${response.statusText}`);
-            })
-            .then((data) => {
-                this.vendors = data || [];
-            })
-            .catch((error) => {
-                console.error("Failed to fetch vendors:", error);
-            });
+        // @ts-ignore
+        this.dispatchMessage(["vendors/load"]); // Trigger vendor fetching when the view is initialized
     }
 
     handleSearch() {
         const query = this.searchQuery.toLowerCase();
-        let cheapestItem: Item | null = null;
-        let cheapestVendor: string | null = null;
-
-        // Iterate through vendors and items to find the cheapest matching item
-        this.vendors.forEach((vendor) => {
-            vendor.items.forEach((item) => {
-                if (item.name.toLowerCase().includes(query)) {
-                    if (!cheapestItem || item.price < cheapestItem.price) {
-                        cheapestItem = item;
-                        cheapestVendor = vendor.name;
-                    }
-                }
-            });
-        });
-
-        if (cheapestItem && cheapestVendor) {
-            // Add the cheapest item to the cart
-            this.cartItems.push({
-                name: cheapestItem.name,
-                price: cheapestItem.price,
-                vendorName: cheapestVendor
-            });
-            this.totalCost += cheapestItem.price;
-        } else {
-            console.log("No items found.");
-        }
-
-        // Reset search query after adding to the cart
-        this.searchQuery = "";
+        // @ts-ignore
+        this.dispatchMessage(["search/item", { query }]);
+        this.searchQuery = ""; // Reset search query
     }
 
     render() {
+        const { cartItems = [], totalCost = 0 } = this.model;
+
         return html`
       <main>
         <section class="search-section">
@@ -87,7 +42,8 @@ export class HomeViewElement extends LitElement {
               id="item-name"
               placeholder="Enter item name..."
               .value="${this.searchQuery}"
-              @input="${(e: Event) => (this.searchQuery = (e.target as HTMLInputElement).value)}"
+              @input="${(e: Event) =>
+            (this.searchQuery = (e.target as HTMLInputElement).value)}"
             />
             <button @click="${this.handleSearch}">Add to Cart</button>
           </div>
@@ -96,14 +52,18 @@ export class HomeViewElement extends LitElement {
         <section class="cart-section">
           <h2>Your Cart</h2>
           <div class="cart-summary">
-            <p>Total Items: ${this.cartItems.length}</p>
-            <p>Estimated Total: $${this.totalCost.toFixed(2)}</p>
+            <p>Total Items: ${cartItems.length}</p>
+            <p>Estimated Total: $${totalCost.toFixed(2)}</p>
           </div>
           <ul class="cart-items">
-            ${this.cartItems.map(
-            (item) => html`
-                <li>${item.name} (Vendor: ${item.vendorName}): $${item.price.toFixed(2)}</li>
-              `
+            ${cartItems.map(
+            (item) =>
+                html`
+                  <li>
+                    ${item.name} (Vendor: ${item.vendorName}): $
+                    ${item.price.toFixed(2)}
+                  </li>
+                `
         )}
           </ul>
         </section>
@@ -112,7 +72,6 @@ export class HomeViewElement extends LitElement {
     }
 
     static styles = css`
-      /* Add your CSS styles here */
       main {
         padding: 20px;
       }
@@ -151,3 +110,5 @@ export class HomeViewElement extends LitElement {
       }
     `;
 }
+
+define({ "home-view": HomeViewElement });

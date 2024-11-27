@@ -28,12 +28,12 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var recipe_exports = {};
 __export(recipe_exports, {
-  Recipe: () => Recipe
+  RecipePage: () => RecipePage
 });
 module.exports = __toCommonJS(recipe_exports);
 var import_renderPage = __toESM(require("./renderPage"));
 var import_server = require("@calpoly/mustang/server");
-class Recipe {
+class RecipePage {
   data;
   constructor(data) {
     this.data = data;
@@ -56,17 +56,17 @@ class Recipe {
     const { name, servings, prepTime } = this.data;
     return import_server.html`
             <body>
-            <main class="recipe-page">
-                <recipe-card
-                        src="/api/recipes/pancakes_001"
-                    <!-- Content inside the slots can be removed or commented out -->
-                </recipe-card>
-            </main>
+                <main class="recipe-page">
+                    <recipe-card
+                        src="/api/recipes/${this.data.id}"
+                        mode="view">
+                    </recipe-card>
+                </main>
             </body>
         `;
   }
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  Recipe
+  RecipePage
 });
