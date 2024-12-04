@@ -8,9 +8,8 @@ export class HeaderElement extends LitElement {
                 <!-- TODO: insert contents of header here -->
                 <h1>Grocery Guru</h1>
                 <nav class="nav_links">
-                    <a href="../index.html">Home</a>
-                    <a href="../nav_links/vendors.html">Vendors</a>
-                    <a href="../nav_links/recipes.html">Recipes</a>
+                    <a href="../app">Home</a>
+                    <a href="../app/recipe-search-view">Recipes Search</a>
                     <a href="../nav_links/about.html">About</a>
                 </nav>
                 <div class="dark-mode-container">
@@ -29,7 +28,7 @@ export class HeaderElement extends LitElement {
                     <span id="userid"></span>
                 </a>
                 <div class="login">
-                    <a href="nav_links/login.html">Login</a>
+                    <a href="../app/login">Login</a>
                 </div>
             </header>
         `;
