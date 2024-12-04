@@ -35,70 +35,64 @@ export class HeaderElement extends LitElement {
     }
 
     static styles = css`
-      /* TODO: Style the header here */
-
+      :host {
+        display: contents;
+      }
       .header_layout {
+        background-color: var(--color-background-header);
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px 20px;
-
+      }
+      .header_layout h1{
+        color: var(--color-title);
       }
 
-      .header_layout .nav_links {
-        display: flex;
-        gap: 20px;
-        padding-left: 25px;
+      .header_layout .nav_links a {
+        color: black; /* Always black for all link states */
+        padding-left: 40px;
+        transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and transform */
       }
 
-      .header_layout .login {
+      .header_layout .nav_links a:visited {
+        color: var(--color-link); /* Override the default visited color */
+      }
+
+      .header_layout .nav_links a:hover {
+        color: white; /* Change to gray on hover */
+        transform: scale(1.05); /* Slight zoom effect on hover */
+      }
+
+      .header_layout .nav_links a:active {
+        color: var(--color-link); /* Stay black when clicked */
+      }
+
+      .header_layout .login a{
         margin-left: auto;
         padding-right: 10px;
+        transition: color 0.3s ease, transform 0.3s ease;
       }
 
-      body {
-        font-family: var(--font-family-header);
-        background-color: var(--color-background-page);
-      }
-
-      header {
-        font-family: var(--font-family-header);
-        background-color: var(--color-background-header);
-        color: var(--color-text-inverted);
-
-      }
-
-      header a {
-        color: var(--color-link-inverted);
-      }
-
-      body > section {
-      }
-
-      h1 {
-        font-size: var(--size-type-xxlarge);
-        font-style: oblique;
-        line-height: 1;
-        font-weight: var(--font-weight-bold);
-      }
-
-      h2 {
-        font-size: var(--size-type-large);
-        fontweight: var(--font-weight-bold);
-      }
-
-      h3 {
-        font-size: var(--size-type-mlarge)
-      }
-
-      ul {
-        font-size: var(--size-type-body);
-      }
-
-      a:link {
+      .header_layout .login a:visited{
         color: var(--color-link);
       }
-      
+
+      .header_layout .login a:hover{
+        color: white; /* Change to gray on hover */
+        transform: scale(1.05); /* Slight zoom effect on hover */
+      }
+
+      .dark-mode-container {
+        display: flex;
+        align-items: center;
+        margin-left: auto; /* Ensures the dark mode button stays to the right */
+        margin-right: 15px; /* Adds some space between dark mode and login */
+      }
+
+      #dark-mode-checkbox {
+        margin-left: 8px; /* Adds space between the label and checkbox */
+      }
     `;
     // @ts-ignore
     toggleDarkMode(event) {
