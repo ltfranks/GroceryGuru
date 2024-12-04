@@ -56,6 +56,9 @@ export default function update(
                 }
             });
             break;
+        case "recipes/search":
+            handleRecipeSearch(message[1].query, apply, user);
+            break;
 
         case "cart/add":
             apply((model) => ({
@@ -69,6 +72,28 @@ export default function update(
             const unhandled: never = message[0];
             throw new Error(`Unhandled Auth message "${unhandled}"`);
     }
+}
+
+function handleRecipeSearch(
+    query: string,
+    apply: Update.ApplyMap<Model>,
+    user: Auth.User
+) {
+    fetchRecipes(user)
+        .then((recipes) => {
+            const lowerCaseQuery = query.toLowerCase();
+            const filteredRecipes = recipes.filter((recipe) =>
+                recipe.name.toLowerCase().includes(lowerCaseQuery)
+            );
+
+            apply((model) => ({
+                ...model,
+                recipes: filteredRecipes,
+            }));
+        })
+        .catch((error) => {
+            console.error("Failed to fetch recipes:", error);
+        });
 }
 
 function fetchVendors(user: Auth.User): Promise<Model["vendors"]> {
@@ -87,6 +112,28 @@ function fetchVendors(user: Auth.User): Promise<Model["vendors"]> {
         .then((data) => {
             if (Array.isArray(data)) {
                 return data as Model["vendors"];
+            } else {
+                throw new Error("Unexpected response format");
+            }
+        });
+}
+
+function fetchRecipes(user: Auth.User): Promise<Model["recipes"]> {
+    return fetch("/api/recipes", {
+        headers: Auth.headers(user),
+    })
+        .then((response) => {
+            if (!response.ok) {
+                if (response.status === 401) {
+                    throw new Error("Unauthorized: User must log in.");
+                }
+                throw new Error(`API error: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            if (Array.isArray(data)) {
+                return data as Model["recipes"];
             } else {
                 throw new Error("Unexpected response format");
             }

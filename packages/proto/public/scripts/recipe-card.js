@@ -102,10 +102,6 @@ export class RecipeCard extends HTMLElement {
         --display-editor-none: none;
       }
 
-      section.view {
-        display: var(--display-view-none, block);
-      }
-
       .container {
         max-width: 800px;
         margin: 0 auto;
