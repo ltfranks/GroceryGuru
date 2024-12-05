@@ -61,48 +61,84 @@ export class RecipeSearchViewElement extends View<Model, Msg> {
     }
 
     static styles = css`
-    main {
-      padding: 20px;
-    }
+        main {
+            padding: 20px;
+        }
 
-    .search-section {
-      margin-bottom: 20px;
-    }
+        .search-section {
+            margin-bottom: 20px;
+        }
 
-    .search-bar {
-      display: flex;
-      gap: 10px;
-    }
+        .search-bar {
+            display: flex;
+        }
 
-    input {
-      flex: 1;
-      padding: 10px;
-    }
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-right: none;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+            outline: none;
+        }
 
-    button {
-      padding: 10px 20px;
-      cursor: pointer;
-    }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-left: none;
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+            background-color: black;
+            color: white;
+            transition: background-color 0.3s ease; /* Add this line */
+        }
 
-    .results-section {
-      margin-top: 20px;
-    }
+        button:hover {
+            background-color: grey;
+        }
 
-    .recipe-list {
-      list-style-type: none;
-      padding: 0;
-      margin: 10px 0;
-    }
 
-    .recipe-list li {
-      padding: 5px 0;
-    }
+        .results-section {
+            margin-top: 20px;
+        }
 
-    .recipe-list a {
-      text-decoration: none;
-      color: blue;
-    }
-  `;
+        .recipe-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .recipe-list li {
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 10px; /* Rounded corners */
+            background-color: #f9f9f9; /* Subtle background color */
+            cursor: pointer; /* Pointer cursor to indicate clickability */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+        }
+
+        .recipe-list li:hover {
+            background-color: #e0e0e0; /* Slightly darker background on hover */
+            transform: scale(1.02); /* Subtle zoom-in effect */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for emphasis */
+        }
+
+        .recipe-list a {
+            text-decoration: none;
+            color: black; /* Default color for unvisited links */
+            font-weight: bold; /* Make the link text stand out */
+            transition: color 0.3s ease; /* Smooth transition for color change */
+        }
+
+        .recipe-list a:visited {
+            color: purple; /* Change color for visited links */
+        }
+
+    `;
+
 }
 
 define({ "recipe-search-view": RecipeSearchViewElement });

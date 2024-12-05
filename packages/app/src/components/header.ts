@@ -5,95 +5,96 @@ export class HeaderElement extends LitElement {
     render() {
         return html`
             <header class="header_layout">
-                <!-- TODO: insert contents of header here -->
                 <h1>Grocery Guru</h1>
                 <nav class="nav_links">
                     <a href="../app">Home</a>
                     <a href="../app/recipe-search-view">Recipes Search</a>
-                    <a href="../nav_links/about.html">About</a>
+                    <a href="../app/about-view">About</a>
                 </nav>
-                <div class="dark-mode-container">
-                    <label>
-                        <input
-                                type="checkbox"
-                                autocomplete="off"
-                                class="dark-mode-switch"
-                                id="dark-mode-checkbox"
-                                @change="${this.toggleDarkMode}"
-                        />
-                        Dark mode
-                    </label>
-                <a slot="actuator">
-                    Hello,
-                    <span id="userid"></span>
-                </a>
-                <div class="login">
-                    <a href="../app/login">Login</a>
+                <div class="action-container">
+                    <div class="dark-mode-container">
+                        <label>
+                            <input
+                                    type="checkbox"
+                                    autocomplete="off"
+                                    class="dark-mode-switch"
+                                    id="dark-mode-checkbox"
+                                    @change="${this.toggleDarkMode}"
+                            />
+                            Dark mode
+                        </label>
+                    </div>
+                    <div class="login">
+                        <a href="../app/login">Login</a>
+                    </div>
                 </div>
             </header>
         `;
     }
 
     static styles = css`
-      :host {
-        display: contents;
-      }
-      .header_layout {
-        background-color: var(--color-background-header);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-      }
-      .header_layout h1{
-        color: var(--color-title);
-      }
+        :host {
+            display: contents;
+        }
+        .header_layout {
+            background-color: var(--color-background-header);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
 
-      .header_layout .nav_links a {
-        color: black; /* Always black for all link states */
-        padding-left: 40px;
-        transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and transform */
-      }
+        .header_layout h1 {
+            color: var(--color-title);
+            margin-right: auto;
+        }
 
-      .header_layout .nav_links a:visited {
-        color: var(--color-link); /* Override the default visited color */
-      }
+        .header_layout .nav_links {
+            display: flex;
+            gap: 80px; /* Space between navigation links */
+            margin-right: auto;
+            margin-left: 40px;
+        }
 
-      .header_layout .nav_links a:hover {
-        color: white; /* Change to gray on hover */
-        transform: scale(1.05); /* Slight zoom effect on hover */
-      }
+        .header_layout .nav_links a {
+            color: black;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
 
-      .header_layout .nav_links a:active {
-        color: var(--color-link); /* Stay black when clicked */
-      }
+        .header_layout .nav_links a:hover {
+            color: white;
+            transform: scale(1.05);
+        }
 
-      .header_layout .login a{
-        margin-left: auto;
-        padding-right: 10px;
-        transition: color 0.3s ease, transform 0.3s ease;
-      }
+        .action-container {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Add spacing between dark mode and login */
+        }
 
-      .header_layout .login a:visited{
-        color: var(--color-link);
-      }
+        .dark-mode-container {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between label and checkbox */
+        }
 
-      .header_layout .login a:hover{
-        color: white; /* Change to gray on hover */
-        transform: scale(1.05); /* Slight zoom effect on hover */
-      }
+        .login a {
+            color: black;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
 
-      .dark-mode-container {
-        display: flex;
-        align-items: center;
-        margin-left: auto; /* Ensures the dark mode button stays to the right */
-        margin-right: 15px; /* Adds some space between dark mode and login */
-      }
+        .login a:hover {
+            color: white;
+            transform: scale(1.05);
+        }
 
-      #dark-mode-checkbox {
-        margin-left: 8px; /* Adds space between the label and checkbox */
-      }
+        #dark-mode-checkbox {
+            margin-left: 5px;
+        }
     `;
+
     // @ts-ignore
     toggleDarkMode(event) {
         const isChecked = event.target.checked;

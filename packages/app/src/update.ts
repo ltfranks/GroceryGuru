@@ -22,18 +22,18 @@ export default function update(
                 });
             break;
 
-            // searches for the cheapest item closest to keyword
         case "search/item":
             const { query } = message[1];
             apply((model) => {
                 const lowerCaseQuery = query.toLowerCase();
-                let cheapestItem: { name: string; price: number; vendorName: string } | null = null;
+                let cheapestItem: { name: string; price: number; vendorName: string; id: string } | null = null;
 
                 model.vendors.forEach((vendor) => {
                     vendor.items.forEach((item) => {
                         if (item.name.toLowerCase().includes(lowerCaseQuery)) {
                             if (!cheapestItem || item.price < cheapestItem.price) {
                                 cheapestItem = {
+                                    id: item.id,
                                     name: item.name,
                                     price: item.price,
                                     vendorName: vendor.name,
@@ -56,6 +56,7 @@ export default function update(
                 }
             });
             break;
+
         case "recipes/search":
             handleRecipeSearch(message[1].query, apply, user);
             break;
@@ -67,6 +68,32 @@ export default function update(
                 totalCost: model.totalCost + message[1].item.price,
             }));
             break;
+
+        case "cart/removeItem":
+            const { itemId } = message[1];
+            apply((model) => {
+                // Find the index of the first item with the matching ID
+                const itemIndex = model.cartItems.findIndex((item) => item.id === itemId);
+                if (itemIndex !== -1) {
+                    // Create a new cart array without the specified item
+                    const updatedCart = [...model.cartItems];
+                    const [removedItem] = updatedCart.splice(itemIndex, 1);
+
+                    // Update the total cost
+                    const updatedTotalCost = model.totalCost - removedItem.price * (removedItem.quantity || 1);
+
+                    return {
+                        ...model,
+                        cartItems: updatedCart,
+                        totalCost: updatedTotalCost,
+                    };
+                }
+
+                // If no matching item is found, return the unchanged model
+                return model;
+            });
+            break;
+
 
         default:
             const unhandled: never = message[0];
