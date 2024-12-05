@@ -1,10 +1,8 @@
 https://ltfranks.csse.dev/ 
 
-"npm start" in proto folder to start project
+- Login page is a buggy when you click "login". So click back to the home page for the main functionality.
+- On the "Recipe Search", you can click search and all recipes will pop up.
+  I like to search for "cookie" recipes and look at the different ones.
 
-comment 10/17/24: still debating if i want grocery store links for this web app. Very likely ill do something else with it
-
-Information Architect Miro link: https://miro.com/app/board/uXjVLbUnHMw=/?share_link_id=264736766174
-
-
-comment 2nd submission: most of the server rendering/action was done under the pancake recipe
+- Home page grocery search by default finds the cheapest grocery for you.
+- If you want something specific -> to be specific (instead of milk, search almond milk).
