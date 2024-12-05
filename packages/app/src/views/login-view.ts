@@ -92,7 +92,7 @@ export class LoginViewElement extends LitElement {
         return html`
         <main class="page">
             <section>
-                <h3>${this.isRegister ? "Register" : "Login"}</h3>
+                <h3>${this.isRegister ? "Register" : "Log in"}</h3>
                 ${this.errorMessage
             ? html`<p class="error-message">${this.errorMessage}</p>`
             : ""}
@@ -168,12 +168,14 @@ export class LoginViewElement extends LitElement {
       }
 
       section {
+          
         max-width: 400px;
         width: 100%;
         background-color: var(--color-background-card);
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ccc;
       }
 
       h3 {
@@ -187,28 +189,32 @@ export class LoginViewElement extends LitElement {
         font-weight: bold;
       }
 
-      input {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid var(--color-border);
-        border-radius: 4px;
-      }
+        input {
+            width: calc(100% - 20px); /* Adjust width to account for padding */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensure padding and border are included in the width */
+        }
 
-      button {
-        width: 100%;
-        padding: 10px;
-        background-color: var(--color-primary);
-        color: var(--color-text-light);
-        font-size: var(--size-type-medium);
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
 
-      button:hover {
-        background-color: var(--color-primary-dark);
-      }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            font-size: var(--size-type-medium);
+            border-radius: 4px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+
+        }
+
+        button:hover {
+            background-color: var(--button-hover-bg, grey);
+        }
 
       p {
         text-align: center;

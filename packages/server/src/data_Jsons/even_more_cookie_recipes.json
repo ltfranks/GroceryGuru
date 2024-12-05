@@ -1,0 +1,140 @@
+[
+  {
+    "id": "gingerbread_cookies_005",
+    "name": "Gingerbread Cookies",
+    "store": "whole_foods",
+    "servings": "24 cookies",
+    "prepTime": "45 minutes",
+    "ingredients": [
+      { "itemName": "All-purpose flour", "quantity": 3, "unit": "cups" },
+      { "itemName": "Ground ginger", "quantity": 1, "unit": "tbsp" },
+      { "itemName": "Ground cinnamon", "quantity": 1, "unit": "tbsp" },
+      { "itemName": "Ground cloves", "quantity": 0.5, "unit": "tsp" },
+      { "itemName": "Ground nutmeg", "quantity": 0.5, "unit": "tsp" },
+      { "itemName": "Baking soda", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Salt", "quantity": 0.5, "unit": "tsp" },
+      { "itemName": "Unsalted butter", "quantity": 1, "unit": "cup" },
+      { "itemName": "Brown sugar", "quantity": 1, "unit": "cup" },
+      { "itemName": "Molasses", "quantity": 0.75, "unit": "cup" },
+      { "itemName": "Egg", "quantity": 1, "unit": "piece" },
+      { "itemName": "Vanilla extract", "quantity": 1, "unit": "tsp" }
+    ],
+    "instructions": [
+      "In a medium bowl, whisk together flour, ginger, cinnamon, cloves, nutmeg, baking soda, and salt.",
+      "In a large bowl, cream butter and brown sugar until light and fluffy.",
+      "Add molasses, egg, and vanilla extract. Mix well.",
+      "Gradually add dry ingredients to wet ingredients, mixing until a dough forms.",
+      "Chill dough for at least 1 hour.",
+      "Preheat oven to 350°F (175°C). Roll dough out on a floured surface and cut into shapes.",
+      "Place on baking sheets and bake for 8-10 minutes. Cool completely before decorating."
+    ],
+    "notes": "Decorate with icing and candy for festive treats."
+  },
+  {
+    "id": "shortbread_cookies_006",
+    "name": "Shortbread Cookies",
+    "store": "aldi",
+    "servings": "24 cookies",
+    "prepTime": "20 minutes",
+    "ingredients": [
+      { "itemName": "Unsalted butter", "quantity": 1, "unit": "cup" },
+      { "itemName": "Powdered sugar", "quantity": 0.5, "unit": "cup" },
+      { "itemName": "All-purpose flour", "quantity": 2, "unit": "cups" },
+      { "itemName": "Vanilla extract", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Salt", "quantity": 0.25, "unit": "tsp" }
+    ],
+    "instructions": [
+      "Preheat oven to 325°F (160°C).",
+      "In a large bowl, cream butter and powdered sugar until light and fluffy.",
+      "Add vanilla extract and mix well.",
+      "Gradually add flour and salt, mixing until dough forms.",
+      "Roll out dough and cut into desired shapes.",
+      "Place cookies on a baking sheet and bake for 12-15 minutes, or until edges are lightly golden.",
+      "Cool on wire racks before serving."
+    ],
+    "notes": "Dip in melted chocolate for an elegant touch."
+  },
+  {
+    "id": "lemon_butter_cookies_007",
+    "name": "Lemon Butter Cookies",
+    "store": "target",
+    "servings": "24 cookies",
+    "prepTime": "30 minutes",
+    "ingredients": [
+      { "itemName": "Unsalted butter", "quantity": 0.75, "unit": "cup" },
+      { "itemName": "White sugar", "quantity": 0.75, "unit": "cup" },
+      { "itemName": "Lemon zest", "quantity": 1, "unit": "tbsp" },
+      { "itemName": "Lemon juice", "quantity": 2, "unit": "tbsp" },
+      { "itemName": "All-purpose flour", "quantity": 2, "unit": "cups" },
+      { "itemName": "Salt", "quantity": 0.5, "unit": "tsp" }
+    ],
+    "instructions": [
+      "Preheat oven to 350°F (175°C).",
+      "In a large bowl, cream butter, sugar, and lemon zest until smooth.",
+      "Add lemon juice and mix well.",
+      "Gradually add flour and salt, mixing until dough forms.",
+      "Roll dough into small balls and place on a baking sheet.",
+      "Flatten each ball with a fork.",
+      "Bake for 10-12 minutes, or until edges are lightly golden. Cool on wire racks."
+    ],
+    "notes": "Sprinkle with powdered sugar for extra sweetness."
+  },
+  {
+    "id": "pumpkin_spice_cookies_008",
+    "name": "Pumpkin Spice Cookies",
+    "store": "sprouts",
+    "servings": "24 cookies",
+    "prepTime": "35 minutes",
+    "ingredients": [
+      { "itemName": "All-purpose flour", "quantity": 2, "unit": "cups" },
+      { "itemName": "Baking soda", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Ground cinnamon", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Ground nutmeg", "quantity": 0.5, "unit": "tsp" },
+      { "itemName": "Salt", "quantity": 0.5, "unit": "tsp" },
+      { "itemName": "Unsalted butter", "quantity": 1, "unit": "cup" },
+      { "itemName": "Brown sugar", "quantity": 1, "unit": "cup" },
+      { "itemName": "Pumpkin puree", "quantity": 1, "unit": "cup" },
+      { "itemName": "Egg", "quantity": 1, "unit": "piece" },
+      { "itemName": "Vanilla extract", "quantity": 1, "unit": "tsp" }
+    ],
+    "instructions": [
+      "Preheat oven to 350°F (175°C).",
+      "In a medium bowl, whisk together flour, baking soda, cinnamon, nutmeg, and salt.",
+      "In a large bowl, cream butter and brown sugar until smooth.",
+      "Add pumpkin puree, egg, and vanilla extract. Mix until combined.",
+      "Gradually add dry ingredients to wet ingredients, mixing until dough forms.",
+      "Drop spoonfuls of dough onto a baking sheet.",
+      "Bake for 10-12 minutes, or until edges are golden. Cool on wire racks."
+    ],
+    "notes": "Pair with cream cheese frosting for a decadent treat."
+  },
+  {
+    "id": "macadamia_nut_cookies_009",
+    "name": "Macadamia Nut Cookies",
+    "store": "kroger",
+    "servings": "24 cookies",
+    "prepTime": "30 minutes",
+    "ingredients": [
+      { "itemName": "Unsalted butter", "quantity": 1, "unit": "cup" },
+      { "itemName": "Brown sugar", "quantity": 1, "unit": "cup" },
+      { "itemName": "White sugar", "quantity": 0.5, "unit": "cup" },
+      { "itemName": "Eggs", "quantity": 2, "unit": "pieces" },
+      { "itemName": "Vanilla extract", "quantity": 1, "unit": "tsp" },
+      { "itemName": "All-purpose flour", "quantity": 2.5, "unit": "cups" },
+      { "itemName": "Baking soda", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Salt", "quantity": 0.5, "unit": "tsp" },
+      { "itemName": "Macadamia nuts", "quantity": 1, "unit": "cup" }
+    ],
+    "instructions": [
+      "Preheat oven to 350°F (175°C).",
+      "In a large bowl, cream butter, brown sugar, and white sugar until light and fluffy.",
+      "Beat in eggs and vanilla extract until combined.",
+      "In a separate bowl, whisk together flour, baking soda, and salt.",
+      "Gradually add dry ingredients to wet ingredients. Mix until combined.",
+      "Fold in macadamia nuts.",
+      "Drop spoonfuls of dough onto a baking sheet.",
+      "Bake for 10-12 minutes, or until golden brown. Cool on wire racks."
+    ],
+    "notes": "Add white chocolate chips for extra sweetness."
+  }
+]

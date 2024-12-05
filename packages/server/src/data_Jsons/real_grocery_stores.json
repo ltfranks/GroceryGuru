@@ -1,0 +1,80 @@
+[
+  {
+    "id": "1",
+    "name": "Ralphs",
+    "state": "California",
+    "city": "Los Angeles",
+    "streetAddress": "123 Ralphs Blvd",
+    "items": [
+      { "id": "1", "name": "Private Selection Angus Beef Ribeye Steak", "price": 15.99, "category": "Meat", "storeId": "1" },
+      { "id": "2", "name": "Simple Truth Organic Brown Eggs (12 Count)", "price": 4.49, "category": "Dairy", "storeId": "1" },
+      { "id": "3", "name": "Coca-Cola Classic (12 Pack)", "price": 6.99, "category": "Beverages", "storeId": "1" },
+      { "id": "4", "name": "Lay’s Classic Potato Chips (8 oz)", "price": 3.99, "category": "Snacks", "storeId": "1" },
+      { "id": "5", "name": "Ralphs Rotisserie Chicken (Hot)", "price": 8.99, "category": "Prepared Foods", "storeId": "1" },
+      { "id": "6", "name": "Ben & Jerry’s Chocolate Fudge Brownie Ice Cream (16 oz)", "price": 5.49, "category": "Frozen", "storeId": "1" },
+      { "id": "7", "name": "Dole Bananas (per lb)", "price": 0.59, "category": "Fruits", "storeId": "1" },
+      { "id": "8", "name": "Nature’s Own Whole Wheat Bread (20 oz)", "price": 2.99, "category": "Bakery", "storeId": "1" },
+      { "id": "9", "name": "Fresh Express Caesar Salad Kit", "price": 3.99, "category": "Prepared Foods", "storeId": "1" },
+      { "id": "10", "name": "Simple Truth Organic Baby Spinach (5 oz)", "price": 3.49, "category": "Vegetables", "storeId": "1" }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Costco",
+    "state": "Washington",
+    "city": "Seattle",
+    "streetAddress": "456 Costco Drive",
+    "items": [
+      { "id": "1", "name": "Kirkland Signature Organic Ground Beef (3 lb)", "price": 17.99, "category": "Meat", "storeId": "2" },
+      { "id": "2", "name": "Kirkland Signature Cage-Free Eggs (24 Count)", "price": 8.99, "category": "Dairy", "storeId": "2" },
+      { "id": "3", "name": "Heinz Ketchup (64 oz)", "price": 5.99, "category": "Pantry", "storeId": "2" },
+      { "id": "4", "name": "Coca-Cola Diet Coke (35 Pack)", "price": 14.99, "category": "Beverages", "storeId": "2" },
+      { "id": "5", "name": "Kirkland Signature Organic Tortilla Chips (28 oz)", "price": 5.99, "category": "Snacks", "storeId": "2" },
+      { "id": "6", "name": "Haagen-Dazs Vanilla Ice Cream (14 oz)", "price": 6.49, "category": "Frozen", "storeId": "2" },
+      { "id": "7", "name": "Sunkist Navel Oranges (8 lb)", "price": 9.99, "category": "Fruits", "storeId": "2" },
+      { "id": "8", "name": "Kirkland Signature Whole Milk (3 Gallons)", "price": 10.99, "category": "Dairy", "storeId": "2" }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Trader Joe's",
+    "state": "California",
+    "city": "San Diego",
+    "streetAddress": "789 TJ Street",
+    "items": [
+      { "id": "1", "name": "Trader Joe's Mandarin Orange Chicken (22 oz)", "price": 4.99, "category": "Frozen", "storeId": "3" },
+      { "id": "2", "name": "Trader Joe's Dark Chocolate Peanut Butter Cups", "price": 4.49, "category": "Snacks", "storeId": "3" },
+      { "id": "3", "name": "Trader Joe's Everything But The Bagel Seasoning (2.3 oz)", "price": 1.99, "category": "Pantry", "storeId": "3" },
+      { "id": "4", "name": "Trader Joe's Organic Brown Rice (Frozen, 3 Pack)", "price": 2.99, "category": "Frozen", "storeId": "3" },
+      { "id": "5", "name": "Trader Joe's Organic Arugula (5 oz)", "price": 2.49, "category": "Vegetables", "storeId": "3" }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Whole Foods Market",
+    "state": "Texas",
+    "city": "Austin",
+    "streetAddress": "123 Organic Ave",
+    "items": [
+      { "id": "1", "name": "Whole Foods 365 Organic Almond Butter (16 oz)", "price": 7.99, "category": "Pantry", "storeId": "4" },
+      { "id": "2", "name": "Organic Broccoli (per lb)", "price": 2.99, "category": "Vegetables", "storeId": "4" },
+      { "id": "3", "name": "Applegate Organic Uncured Turkey Bacon (8 oz)", "price": 6.49, "category": "Meat", "storeId": "4" },
+      { "id": "4", "name": "LaCroix Sparkling Water Variety Pack (12 Count)", "price": 5.99, "category": "Beverages", "storeId": "4" },
+      { "id": "5", "name": "365 Everyday Value Organic Quinoa (16 oz)", "price": 4.49, "category": "Pantry", "storeId": "4" }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Safeway",
+    "state": "Colorado",
+    "city": "Denver",
+    "streetAddress": "321 Safeway Lane",
+    "items": [
+      { "id": "1", "name": "Signature Select Boneless Skinless Chicken Thighs", "price": 7.49, "category": "Meat", "storeId": "5" },
+      { "id": "2", "name": "Lucerne Cage-Free Large Brown Eggs (12 Count)", "price": 3.99, "category": "Dairy", "storeId": "5" },
+      { "id": "3", "name": "Coca-Cola Classic (6 Pack)", "price": 4.99, "category": "Beverages", "storeId": "5" },
+      { "id": "4", "name": "Lay’s Barbecue Potato Chips (7.75 oz)", "price": 3.99, "category": "Snacks", "storeId": "5" },
+      { "id": "5", "name": "Signature Select Rotisserie Chicken (Hot)", "price": 8.99, "category": "Prepared Foods", "storeId": "5" }
+    ]
+  }
+]

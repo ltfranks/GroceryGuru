@@ -8,7 +8,8 @@ import {HeaderElement} from "./components/header";
 import {HomeViewElement} from "./views/home-view";
 import {RecipeViewElement} from "./views/recipe-view";
 import {LoginViewElement} from "./views/login-view";
-
+import {RecipeSearchViewElement} from "./views/recipe-search-view";
+import {AboutViewElement} from "./views/about-view.ts";
 import {Msg} from "./messages";
 import {Model, init} from "./model";
 import update from "./update";
@@ -18,6 +19,8 @@ class AppElement extends LitElement {
         "home-view": HomeViewElement,
         "recipe-view": RecipeViewElement,
         "login-view": LoginViewElement,
+        "recipe-search-view": RecipeSearchViewElement,
+        "about-view": AboutViewElement,
 
         "mu-store": class AppStore extends Store.Provider<Model,
             Msg> {
@@ -50,6 +53,18 @@ const routes = [
             <login-view></login-view>`
     },
     {
+        path: "/app/recipe-search-view",
+        view: () => html`
+            <recipe-search-view></recipe-search-view>
+        `
+    },
+    {
+        path: "/app/about-view",
+        view: () => html`
+            <about-view></about-view>
+        `
+    },
+    {
         path: "/app",
         view: () => html`
             <home-view></home-view>
@@ -60,7 +75,6 @@ const routes = [
         redirect: "/app"
     }
 ];
-
 
 define({
     "mu-auth": Auth.Provider,

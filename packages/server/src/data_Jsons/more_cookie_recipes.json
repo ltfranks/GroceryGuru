@@ -1,0 +1,111 @@
+[
+  {
+    "id": "sugar_cookies_001",
+    "name": "Sugar Cookies",
+    "store": "target",
+    "servings": "24 cookies",
+    "prepTime": "30 minutes",
+    "ingredients": [
+      { "itemName": "All-purpose flour", "quantity": 2.5, "unit": "cups" },
+      { "itemName": "Baking powder", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Salt", "quantity": 0.5, "unit": "tsp" },
+      { "itemName": "Unsalted butter", "quantity": 1, "unit": "cup" },
+      { "itemName": "White sugar", "quantity": 1.5, "unit": "cups" },
+      { "itemName": "Vanilla extract", "quantity": 2, "unit": "tsp" },
+      { "itemName": "Eggs", "quantity": 2, "unit": "pieces" }
+    ],
+    "instructions": [
+      "Preheat oven to 375°F (190°C).",
+      "In a medium bowl, whisk together flour, baking powder, and salt.",
+      "In a large bowl, cream together butter and sugar until light and fluffy.",
+      "Beat in eggs and vanilla extract until combined.",
+      "Gradually add dry ingredients to wet ingredients. Mix until dough forms.",
+      "Roll out dough on a floured surface and cut into shapes using cookie cutters.",
+      "Place cookies on a parchment-lined baking sheet.",
+      "Bake for 8-10 minutes, or until edges are lightly golden. Cool completely before decorating."
+    ],
+    "notes": "Decorate with royal icing or sprinkles for a festive touch."
+  },
+  {
+    "id": "peanut_butter_cookies_002",
+    "name": "Peanut Butter Cookies",
+    "store": "kroger",
+    "servings": "24 cookies",
+    "prepTime": "25 minutes",
+    "ingredients": [
+      { "itemName": "Peanut butter", "quantity": 1, "unit": "cup" },
+      { "itemName": "White sugar", "quantity": 1, "unit": "cup" },
+      { "itemName": "Egg", "quantity": 1, "unit": "piece" },
+      { "itemName": "Vanilla extract", "quantity": 1, "unit": "tsp" }
+    ],
+    "instructions": [
+      "Preheat oven to 350°F (175°C).",
+      "In a bowl, mix peanut butter, sugar, egg, and vanilla extract until smooth.",
+      "Scoop tablespoonfuls of dough and roll into balls.",
+      "Place dough balls on a baking sheet and flatten with a fork in a crisscross pattern.",
+      "Bake for 8-10 minutes. Cool on the baking sheet for 5 minutes before transferring to a wire rack."
+    ],
+    "notes": "For extra crunch, use chunky peanut butter."
+  },
+  {
+    "id": "oatmeal_raisin_cookies_003",
+    "name": "Oatmeal Raisin Cookies",
+    "store": "aldi",
+    "servings": "24 cookies",
+    "prepTime": "30 minutes",
+    "ingredients": [
+      { "itemName": "Rolled oats", "quantity": 2, "unit": "cups" },
+      { "itemName": "All-purpose flour", "quantity": 1.25, "unit": "cups" },
+      { "itemName": "Baking soda", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Cinnamon", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Salt", "quantity": 0.5, "unit": "tsp" },
+      { "itemName": "Unsalted butter", "quantity": 1, "unit": "cup" },
+      { "itemName": "Brown sugar", "quantity": 1, "unit": "cup" },
+      { "itemName": "White sugar", "quantity": 0.5, "unit": "cup" },
+      { "itemName": "Eggs", "quantity": 2, "unit": "pieces" },
+      { "itemName": "Vanilla extract", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Raisins", "quantity": 1, "unit": "cup" }
+    ],
+    "instructions": [
+      "Preheat oven to 350°F (175°C).",
+      "In a medium bowl, whisk together oats, flour, baking soda, cinnamon, and salt.",
+      "In a large bowl, cream butter, brown sugar, and white sugar until smooth.",
+      "Beat in eggs and vanilla extract until combined.",
+      "Gradually mix in dry ingredients until fully incorporated.",
+      "Fold in raisins.",
+      "Drop spoonfuls of dough onto a parchment-lined baking sheet.",
+      "Bake for 10-12 minutes, or until edges are golden. Cool on wire racks."
+    ],
+    "notes": "Substitute raisins with dried cranberries for a twist."
+  },
+  {
+    "id": "snickerdoodle_cookies_004",
+    "name": "Snickerdoodle Cookies",
+    "store": "heb",
+    "servings": "24 cookies",
+    "prepTime": "25 minutes",
+    "ingredients": [
+      { "itemName": "All-purpose flour", "quantity": 2.75, "unit": "cups" },
+      { "itemName": "Baking soda", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Cream of tartar", "quantity": 2, "unit": "tsp" },
+      { "itemName": "Salt", "quantity": 0.5, "unit": "tsp" },
+      { "itemName": "Unsalted butter", "quantity": 1, "unit": "cup" },
+      { "itemName": "White sugar", "quantity": 1.5, "unit": "cups" },
+      { "itemName": "Eggs", "quantity": 2, "unit": "pieces" },
+      { "itemName": "Vanilla extract", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Cinnamon", "quantity": 2, "unit": "tsp" },
+      { "itemName": "Sugar", "quantity": 2, "unit": "tbsp" }
+    ],
+    "instructions": [
+      "Preheat oven to 375°F (190°C).",
+      "In a medium bowl, whisk together flour, baking soda, cream of tartar, and salt.",
+      "In a large bowl, cream butter and sugar until light and fluffy.",
+      "Beat in eggs and vanilla extract until combined.",
+      "Gradually add dry ingredients to wet ingredients. Mix until dough forms.",
+      "In a small bowl, mix cinnamon and sugar for rolling.",
+      "Shape dough into balls and roll in cinnamon sugar mixture.",
+      "Place on baking sheets and bake for 8-10 minutes. Cool on wire racks."
+    ],
+    "notes": "Ensure cookies remain soft by slightly underbaking."
+  }
+]
