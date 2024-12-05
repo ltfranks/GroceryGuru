@@ -1,0 +1,78 @@
+[
+  {
+    "id": "6",
+    "name": "Walmart",
+    "state": "Arkansas",
+    "city": "Bentonville",
+    "streetAddress": "700 Walmart Way",
+    "items": [
+      { "id": "1", "name": "Great Value 2% Reduced Fat Milk (1 Gallon)", "price": 2.49, "category": "Dairy", "storeId": "6" },
+      { "id": "2", "name": "Great Value White Sandwich Bread (20 oz)", "price": 1.29, "category": "Bakery", "storeId": "6" },
+      { "id": "3", "name": "Tyson Fully Cooked Chicken Nuggets (2 lb)", "price": 5.99, "category": "Frozen", "storeId": "6" },
+      { "id": "4", "name": "Coca-Cola Classic (12 Pack)", "price": 6.49, "category": "Beverages", "storeId": "6" },
+      { "id": "5", "name": "Lay's Classic Potato Chips (Party Size)", "price": 4.49, "category": "Snacks", "storeId": "6" },
+      { "id": "6", "name": "Blue Bell Homemade Vanilla Ice Cream (1/2 Gallon)", "price": 7.99, "category": "Frozen", "storeId": "6" },
+      { "id": "7", "name": "Great Value Rotisserie Chicken (Hot)", "price": 5.99, "category": "Prepared Foods", "storeId": "6" },
+      { "id": "8", "name": "Nature Valley Crunchy Granola Bars (12 Count)", "price": 3.49, "category": "Snacks", "storeId": "6" },
+      { "id": "9", "name": "Quaker Old-Fashioned Oats (42 oz)", "price": 4.29, "category": "Pantry", "storeId": "6" },
+      { "id": "10", "name": "Fresh Bananas (per lb)", "price": 0.56, "category": "Fruits", "storeId": "6" }
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Publix",
+    "state": "Florida",
+    "city": "Lakeland",
+    "streetAddress": "200 Publix Parkway",
+    "items": [
+      { "id": "1", "name": "Publix Premium Ice Cream Chocolate (1/2 Gallon)", "price": 5.99, "category": "Frozen", "storeId": "7" },
+      { "id": "2", "name": "Publix Cage-Free Large Brown Eggs (12 Count)", "price": 3.79, "category": "Dairy", "storeId": "7" },
+      { "id": "3", "name": "GreenWise Organic Chicken Breast (per lb)", "price": 6.49, "category": "Meat", "storeId": "7" },
+      { "id": "4", "name": "Publix Butter (16 oz)", "price": 3.49, "category": "Dairy", "storeId": "7" },
+      { "id": "5", "name": "GreenWise Organic Whole Milk (1 Gallon)", "price": 5.29, "category": "Dairy", "storeId": "7" },
+      { "id": "6", "name": "Publix Bakery Italian Bread (16 oz)", "price": 2.99, "category": "Bakery", "storeId": "7" },
+      { "id": "7", "name": "Publix Rotisserie Chicken (Hot)", "price": 7.99, "category": "Prepared Foods", "storeId": "7" },
+      { "id": "8", "name": "GreenWise Organic Baby Spinach (5 oz)", "price": 3.99, "category": "Vegetables", "storeId": "7" },
+      { "id": "9", "name": "Publix Caesar Salad Kit", "price": 3.49, "category": "Prepared Foods", "storeId": "7" },
+      { "id": "10", "name": "Publix Orange Juice (52 oz)", "price": 3.99, "category": "Beverages", "storeId": "7" }
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Albertsons",
+    "state": "Idaho",
+    "city": "Boise",
+    "streetAddress": "300 Albertsons Drive",
+    "items": [
+      { "id": "1", "name": "Signature Select Boneless Chicken Breast (per lb)", "price": 5.99, "category": "Meat", "storeId": "8" },
+      { "id": "2", "name": "Lucerne Whole Milk (1 Gallon)", "price": 3.49, "category": "Dairy", "storeId": "8" },
+      { "id": "3", "name": "Lucerne Butter Salted (16 oz)", "price": 3.79, "category": "Dairy", "storeId": "8" },
+      { "id": "4", "name": "O Organics Baby Carrots (16 oz)", "price": 1.99, "category": "Vegetables", "storeId": "8" },
+      { "id": "5", "name": "Albertsons French Bread (20 oz)", "price": 2.49, "category": "Bakery", "storeId": "8" },
+      { "id": "6", "name": "Signature Select Cola (12 Pack)", "price": 4.99, "category": "Beverages", "storeId": "8" },
+      { "id": "7", "name": "Signature Select Ice Cream Vanilla (48 oz)", "price": 4.49, "category": "Frozen", "storeId": "8" },
+      { "id": "8", "name": "Lucerne Shredded Mozzarella Cheese (8 oz)", "price": 3.29, "category": "Dairy", "storeId": "8" },
+      { "id": "9", "name": "Signature Select Sweet Italian Sausage (19 oz)", "price": 4.99, "category": "Meat", "storeId": "8" },
+      { "id": "10", "name": "O Organics Quinoa (16 oz)", "price": 3.99, "category": "Pantry", "storeId": "8" }
+    ]
+  },
+  {
+    "id": "9",
+    "name": "H-E-B",
+    "state": "Texas",
+    "city": "Austin",
+    "streetAddress": "400 H-E-B Drive",
+    "items": [
+      { "id": "1", "name": "H-E-B Texas BBQ Brisket (per lb)", "price": 15.99, "category": "Meat", "storeId": "9" },
+      { "id": "2", "name": "H-E-B Organics Cage-Free Eggs (12 Count)", "price": 4.49, "category": "Dairy", "storeId": "9" },
+      { "id": "3", "name": "H-E-B Creamy Peanut Butter (16 oz)", "price": 2.49, "category": "Pantry", "storeId": "9" },
+      { "id": "4", "name": "H-E-B Jalapeno Cheese Bread (20 oz)", "price": 3.99, "category": "Bakery", "storeId": "9" },
+      { "id": "5", "name": "H-E-B Buttered Tortillas (10 Count)", "price": 3.29, "category": "Bakery", "storeId": "9" },
+      { "id": "6", "name": "H-E-B Organics Gala Apples (3 lb)", "price": 5.99, "category": "Fruits", "storeId": "9" },
+      { "id": "7", "name": "H-E-B Texas BBQ Sauce (18 oz)", "price": 3.49, "category": "Pantry", "storeId": "9" },
+      { "id": "8", "name": "H-E-B Coke Zero (12 Pack)", "price": 6.49, "category": "Beverages", "storeId": "9" },
+      { "id": "9", "name": "H-E-B Select Ice Cream Mint Chocolate Chip (48 oz)", "price": 4.79, "category": "Frozen", "storeId": "9" },
+      { "id": "10", "name": "H-E-B Sliced Cheddar Cheese (16 oz)", "price": 4.49, "category": "Dairy", "storeId": "9" }
+    ]
+  }
+]
