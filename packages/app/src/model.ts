@@ -1,12 +1,20 @@
+export interface Item {
+    id: string;
+    name: string;
+    price: number;
+}
+
 export interface Vendor {
     name: string;
-    items: Array<{ name: string; price: number }>;
+    items: Item[];
 }
 
 export interface CartItem {
+    id: string;
     name: string;
     price: number;
     vendorName: string;
+    quantity?: number; // Optional quantity
 }
 
 export interface Recipe {
@@ -21,10 +29,9 @@ export interface Model {
     recipes: Recipe[];
 }
 
-
 export const init: Model = {
     vendors: [],
     cartItems: [],
     totalCost: 0,
-    recipes: []
+    recipes: [],
 };

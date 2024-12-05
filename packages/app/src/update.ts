@@ -1,7 +1,7 @@
 // @ts-ignore
 import { Auth, Update } from "@calpoly/mustang";
 import { Msg } from "./messages";
-import { Model } from "./model";
+import { CartItem,Model} from "./model";
 
 export default function update(
     message: Msg,
@@ -26,7 +26,8 @@ export default function update(
             const { query } = message[1];
             apply((model) => {
                 const lowerCaseQuery = query.toLowerCase();
-                let cheapestItem: { name: string; price: number; vendorName: string; id: string } | null = null;
+
+                let cheapestItem = null as CartItem | null;
 
                 model.vendors.forEach((vendor) => {
                     vendor.items.forEach((item) => {
@@ -43,8 +44,8 @@ export default function update(
                     });
                 });
 
-                if (cheapestItem) {
-                    console.log(`Adding to cart: ${cheapestItem.name} from ${cheapestItem.vendorName}`);
+                if (cheapestItem !== null) {
+                    // TypeScript now knows `cheapestItem` is not null
                     return {
                         ...model,
                         cartItems: [...model.cartItems, cheapestItem],
@@ -57,6 +58,8 @@ export default function update(
             });
             break;
 
+
+
         case "recipes/search":
             handleRecipeSearch(message[1].query, apply, user);
             break;
@@ -68,6 +71,7 @@ export default function update(
                 totalCost: model.totalCost + message[1].item.price,
             }));
             break;
+
 
         case "cart/removeItem":
             const { itemId } = message[1];

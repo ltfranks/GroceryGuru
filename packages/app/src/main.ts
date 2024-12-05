@@ -81,7 +81,7 @@ define({
     "mu-history": History.Provider,
     "mu-store": class AppStore extends Store.Provider<Model, Msg> {
         constructor() {
-            super(update, { cartItems: [], vendors: [] }, "guru:auth");
+            super(update, { cartItems: [], vendors: [], totalCost: 0, recipes: [] }, "guru:auth");
         }
     },
     "mu-switch": class AppSwitch extends Switch.Element {
