@@ -1,0 +1,56 @@
+:root{
+    --size-spacing-small: 0.25rem;
+    --size-spacing-medium: 0.5rem;
+    --size-spacing-large: 1.0rem;
+    --size-spacing-xlarge: 1.5rem;
+
+    --size-type-small: 0.5rem;
+    --size-type-body: 1rem;
+    --size-type-mlarge: 1.25rem;
+    --size-type-large: 1.5rem;
+    --size-type-xlarge: 2rem;
+    --size-type-xxlarge: 2.5rem;
+
+    --color-accent: rgb(76, 175, 80);
+    --color-accent-inverted: rgb(129, 212, 250);
+    --color-background-header: var(--color-accent);
+    --color-background-page: white;
+    --color-link: black;
+    --color-link-inverted: var(--color-accent-inverted);
+    --color-text: rgb(51 51 51);
+    --color-text-inverted: rgb(255 255 255);
+    --color-title: white;
+
+    --font-family-header: poppins, sans-serif;
+    --font-family-body: roboto, lato, sans-serif;
+
+    --font-size-small: 8px;
+    --font-size-small-medium: 12px;
+    --font-size-medium: 16px;
+    --font-size-title: 20px;
+
+    --font-line-height-body: 1.6;
+    --font-line-height-display: 1.125;
+
+    --font-weight-light: 200;
+    --font-weight-normal: 400;
+    --font-weight-bold: 600;
+}
+
+.icon{
+    width: 24px;
+    height: 24px;
+}
+
+body.dark-mode {
+    /* Tailwind dark mode colors */
+    --color-background-header: #3f3f3f;
+    --color-background-page: #575757;
+    --color-text: white;
+    --color-link: var(--color-text);
+    --color-text-inverted: #ffffff;
+    --color-title: var(--color-text);
+
+    /* Optional: Add border or focus colors for better contrast */
+    --color-border: #4b5563; /* Tailwind border color for dark mode (gray-600) */
+}
