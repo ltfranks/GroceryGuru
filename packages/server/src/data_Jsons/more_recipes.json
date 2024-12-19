@@ -1,0 +1,76 @@
+[
+  {
+    "id": "grilled_chicken_001",
+    "name": "Grilled Lemon Herb Chicken",
+    "store": "heb",
+    "servings": "4 servings",
+    "prepTime": "35 minutes",
+    "ingredients": [
+      { "itemName": "Chicken breast", "quantity": 4, "unit": "pieces" },
+      { "itemName": "Olive oil", "quantity": 3, "unit": "tbsp" },
+      { "itemName": "Lemon juice", "quantity": 2, "unit": "tbsp" },
+      { "itemName": "Garlic", "quantity": 3, "unit": "cloves" },
+      { "itemName": "Parsley", "quantity": 2, "unit": "tbsp" },
+      { "itemName": "Salt", "quantity": 1, "unit": "tsp" },
+      { "itemName": "Black pepper", "quantity": 0.5, "unit": "tsp" }
+    ],
+    "instructions": [
+      "In a small bowl, mix olive oil, lemon juice, minced garlic, chopped parsley, salt, and pepper.",
+      "Marinate chicken breasts in the mixture for at least 15 minutes.",
+      "Heat a grill or grill pan over medium heat. Grill chicken for 6-8 minutes per side, or until fully cooked.",
+      "Serve hot with a side of vegetables or salad."
+    ],
+    "notes": "Marinate overnight for maximum flavor."
+  },
+  {
+    "id": "chicken_stir_fry_002",
+    "name": "Chicken Stir-Fry",
+    "store": "aldi",
+    "servings": "4 servings",
+    "prepTime": "30 minutes",
+    "ingredients": [
+      { "itemName": "Chicken breast", "quantity": 1, "unit": "lb" },
+      { "itemName": "Bell peppers", "quantity": 2, "unit": "pieces" },
+      { "itemName": "Soy sauce", "quantity": 3, "unit": "tbsp" },
+      { "itemName": "Ginger", "quantity": 1, "unit": "tbsp" },
+      { "itemName": "Garlic", "quantity": 2, "unit": "cloves" },
+      { "itemName": "Sesame oil", "quantity": 1, "unit": "tbsp" },
+      { "itemName": "Cornstarch", "quantity": 1, "unit": "tbsp" },
+      { "itemName": "Water", "quantity": 0.25, "unit": "cup" }
+    ],
+    "instructions": [
+      "Cut chicken into bite-sized pieces. Slice bell peppers into strips.",
+      "In a small bowl, mix soy sauce, minced garlic, grated ginger, sesame oil, cornstarch, and water to make the sauce.",
+      "Heat a wok or skillet over medium-high heat. Cook chicken until browned and cooked through.",
+      "Add bell peppers and stir-fry for 3-5 minutes.",
+      "Pour the sauce over the chicken and vegetables. Cook until the sauce thickens.",
+      "Serve hot with steamed rice or noodles."
+    ],
+    "notes": "Add broccoli or snap peas for extra veggies."
+  },
+  {
+    "id": "creamy_alfredo_002",
+    "name": "Creamy Fettuccine Alfredo",
+    "store": "kroger",
+    "servings": "4 servings",
+    "prepTime": "30 minutes",
+    "ingredients": [
+      { "itemName": "Fettuccine", "quantity": 12, "unit": "oz" },
+      { "itemName": "Unsalted butter", "quantity": 4, "unit": "tbsp" },
+      { "itemName": "Heavy cream", "quantity": 1, "unit": "cup" },
+      { "itemName": "Parmesan cheese", "quantity": 1, "unit": "cup" },
+      { "itemName": "Garlic", "quantity": 2, "unit": "cloves" },
+      { "itemName": "Salt", "quantity": 0.5, "unit": "tsp" },
+      { "itemName": "Black pepper", "quantity": 0.25, "unit": "tsp" }
+    ],
+    "instructions": [
+      "Cook fettuccine according to package instructions. Drain and set aside.",
+      "In a large skillet, melt butter over medium heat. Add minced garlic and sauté until fragrant.",
+      "Stir in heavy cream and bring to a gentle simmer.",
+      "Gradually whisk in Parmesan cheese until smooth and creamy.",
+      "Toss cooked fettuccine in the sauce. Season with salt and pepper.",
+      "Serve immediately, garnished with extra Parmesan if desired."
+    ],
+    "notes": "Add cooked chicken or shrimp for a protein boost."
+  }
+]

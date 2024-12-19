@@ -1,7 +1,7 @@
 // @ts-ignore
-import { Auth, Update } from "@calpoly/mustang";
-import { Msg } from "./messages";
-import { CartItem,Model} from "./model";
+import {Auth, Update} from "@calpoly/mustang";
+import {Msg} from "./messages";
+import {CartItem, Model} from "./model";
 
 export default function update(
     message: Msg,
@@ -23,7 +23,7 @@ export default function update(
             break;
 
         case "search/item":
-            const { query } = message[1];
+            const {query} = message[1];
             apply((model) => {
                 const lowerCaseQuery = query.toLowerCase();
 
@@ -59,7 +59,6 @@ export default function update(
             break;
 
 
-
         case "recipes/search":
             handleRecipeSearch(message[1].query, apply, user);
             break;
@@ -74,7 +73,7 @@ export default function update(
 
 
         case "cart/removeItem":
-            const { itemId } = message[1];
+            const {itemId} = message[1];
             apply((model) => {
                 // Find the index of the first item with the matching ID
                 const itemIndex = model.cartItems.findIndex((item) => item.id === itemId);
@@ -97,6 +96,38 @@ export default function update(
                 return model;
             });
             break;
+
+        case "cart/calculateCheapestStore":
+            apply((model) => {
+                let cheapestVendor = null;
+                let lowestTotalCost = Infinity;
+
+                model.vendors.forEach((vendor) => {
+                    const vendorTotal = model.cartItems.reduce((sum, item) => {
+                        const vendorItem = vendor.items.find((vItem) => vItem.name === item.name);
+                        return vendorItem ? sum + vendorItem.price : sum;
+                    }, 0);
+
+                    const allItemsAvailable = model.cartItems.every((item) =>
+                        vendor.items.some((vItem) => vItem.name === item.name)
+                    );
+
+                    if (allItemsAvailable && vendorTotal < lowestTotalCost) {
+                        lowestTotalCost = vendorTotal;
+                        cheapestVendor = vendor.name;
+                    }
+                });
+
+                return {
+                    ...model,
+                    cheapestStore: cheapestVendor
+                        ? { name: cheapestVendor, averageCost: lowestTotalCost }
+                        : undefined,
+                };
+            });
+            break;
+
+
 
 
         default:

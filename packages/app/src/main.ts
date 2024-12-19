@@ -9,7 +9,7 @@ import {HomeViewElement} from "./views/home-view";
 import {RecipeViewElement} from "./views/recipe-view";
 import {LoginViewElement} from "./views/login-view";
 import {RecipeSearchViewElement} from "./views/recipe-search-view";
-import {AboutViewElement} from "./views/about-view.ts";
+import {AboutViewElement} from "./views/about-view";
 import {Msg} from "./messages";
 import {Model, init} from "./model";
 import update from "./update";
@@ -81,7 +81,7 @@ define({
     "mu-history": History.Provider,
     "mu-store": class AppStore extends Store.Provider<Model, Msg> {
         constructor() {
-            super(update, { cartItems: [], vendors: [], totalCost: 0, recipes: [] }, "guru:auth");
+            super(update, { cartItems: [], vendors: [], totalCost: 0, recipes: [], cheapestStore: undefined }, "guru:auth");
         }
     },
     "mu-switch": class AppSwitch extends Switch.Element {

@@ -27,6 +27,7 @@ export interface Model {
     cartItems: CartItem[];
     totalCost: number;
     recipes: Recipe[];
+    cheapestStore?: { name: string; averageCost: number };
 }
 
 export const init: Model = {
@@ -34,4 +35,5 @@ export const init: Model = {
     cartItems: [],
     totalCost: 0,
     recipes: [],
+    cheapestStore: undefined,
 };
