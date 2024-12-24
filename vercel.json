@@ -5,14 +5,10 @@
       "src": "packages/app/package.json",
       "use": "@vercel/static-build",
       "config": { "distDir": "packages/app/dist" }
-    },
-    {
-      "src": "packages/server/src/**/*.ts",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "packages/server/src/index.ts" },
     { "src": "/(.*)", "dest": "packages/app/dist/$1" }
   ]
 }
+
