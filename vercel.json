@@ -5,9 +5,15 @@
       "src": "packages/app/**/*",
       "use": "@vercel/static-build",
       "config": { "distDir": "packages/app/dist" }
+    },
+    {
+      "src": "packages/server/dist/index.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
+    { "src": "/api/(.*)", "dest": "packages/server/dist/index.js" },
     { "src": "/(.*)", "dest": "packages/app/dist/$1" }
   ]
 }
+
