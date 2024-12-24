@@ -6,7 +6,7 @@ import auth, { authenticateUser } from "./routes/auth";
 import recipes from "./routes/recipes";
 import vendors from "./routes/vendors";
 import { connect } from "./services/mongo"; // Connect to the database
-import {LoginPage, RegistrationPage} from "./pages/auth"
+import {LoginPage, RegistrationPage} from "./pages/auth";
 
 // Connect to the database
 connect("cluster0"); // Use your own DB name here
@@ -69,3 +69,4 @@ app.get("/recipe/:recipeId", async (req: Request, res: Response) => {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
+export default app;
