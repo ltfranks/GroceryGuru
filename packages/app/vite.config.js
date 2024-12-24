@@ -1,5 +1,8 @@
 // app/vite.config.js
 export default {
+    build: {
+        outDir: "dist", // Default output directory
+    },
     server: {
         proxy: {
             "/api": "http://localhost:3000",
