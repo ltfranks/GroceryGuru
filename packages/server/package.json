@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "nodemon",
-    "build": "npx etsc",
+    "build": "cd ../app && npm install && npm run build && cd ../server && npx etsc",
     "start": "npm run build && npm run start:node",
     "start:node": "node dist/index.js",
     "start:proto": "cross-env STATIC=../proto/public npm run start",
