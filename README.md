@@ -1,4 +1,6 @@
-https://ltfranks.csse.dev/ 
+https://grocery-guru-ten.vercel.app/
+
+The mongodb api isnt working on vercel as i couldnt figure it out. It does work locally.
 
 - Login page is buggy when you click "login". So click back to the home page for the main functionality.
 - On the "Recipe Search", you can click search and all recipes will pop up.
