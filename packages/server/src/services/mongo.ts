@@ -4,7 +4,13 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 
 mongoose.set("debug", true);
-dotenv.config();
+if (process.env.NODE_ENV !== "production") {
+    dotenv.config();
+}
+console.log("Environment Variables:");
+console.log("MONGO_USER:", process.env.MONGO_USER);
+console.log("MONGO_PWD:", process.env.MONGO_PWD ? "****" : "Not Set");
+console.log("MONGO_CLUSTER:", process.env.MONGO_CLUSTER);
 
 function getMongoURI(dbname: string) {
     let connection_string = `mongodb://localhost:27017/${dbname}`;

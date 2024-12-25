@@ -34,7 +34,13 @@ module.exports = __toCommonJS(mongo_exports);
 var import_dotenv = __toESM(require("dotenv"));
 var import_mongoose = __toESM(require("mongoose"));
 import_mongoose.default.set("debug", true);
-import_dotenv.default.config();
+if (process.env.NODE_ENV !== "production") {
+  import_dotenv.default.config();
+}
+console.log("Environment Variables:");
+console.log("MONGO_USER:", process.env.MONGO_USER);
+console.log("MONGO_PWD:", process.env.MONGO_PWD ? "****" : "Not Set");
+console.log("MONGO_CLUSTER:", process.env.MONGO_CLUSTER);
 function getMongoURI(dbname) {
   let connection_string = `mongodb://localhost:27017/${dbname}`;
   const { MONGO_USER, MONGO_PWD, MONGO_CLUSTER } = process.env;
