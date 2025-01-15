@@ -1,10 +1,24 @@
-https://grocery-guru-ten.vercel.app/
+Grocery Guru is a web app designed to help users find the most affordable grocery baskets while reducing food waste. It enables users to compare grocery prices across multiple stores and discover the best deals.
 
-The mongodb api isnt working on vercel as i couldnt figure it out. It does work locally.
+Features
+* Price Comparison: Search for items and find the store with the cheapest basket for your groceries.
+* Food Waste Reduction: Highlights deals on near-expiry items to encourage sustainable shopping habits.
+* Shopping Cart Integration: Add items to your virtual cart and track total costs in real time.
+* User-Friendly Interface: Intuitive design tailored for ease of use on both desktop and mobile devices.
 
-- Login page is buggy when you click "login". So click back to the home page for the main functionality.
-- On the "Recipe Search", you can click search and all recipes will pop up.
-  I like to search for "cookie" recipes and look at the different ones.
+Stack Used
+* HTML5 / CSS3 (Structure and Styling)
+* JavaScript / TypeScript (Functionality and Type Safety)
+* Vite (Bundling and Development Environment)
+* MongoDB (For data storage and authentication if applicable)
+* Git/GitHub (Version Control)
 
-- Home page grocery search by default finds the cheapest grocery for you.
-- If you want something specific -> to be specific (instead of milk, search almond milk).
+Home Page + Functionality: 
+![image](https://github.com/user-attachments/assets/76c58b73-a040-4915-b863-f77c73c5ca83)
+![image](https://github.com/user-attachments/assets/a52b8f68-117a-4241-948a-7b6db4ece90b)
+
+
+Recipes Search
+![image](https://github.com/user-attachments/assets/5f5d3541-5cb9-4833-80c9-2eedcbce0efd)
+![image](https://github.com/user-attachments/assets/0b5a5939-44af-4220-ba1b-a499254b6359)
+
