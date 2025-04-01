@@ -1,17 +1,34 @@
-Grocery Guru is a web app designed to help users find the most affordable grocery baskets while reducing food waste. It enables users to compare grocery prices across multiple stores and discover the best deals.
 
-Features
-* Price Comparison: Search for items and find the store with the cheapest basket for your groceries.
-* Food Waste Reduction: Highlights deals on near-expiry items to encourage sustainable shopping habits.
-* Shopping Cart Integration: Add items to your virtual cart and track total costs in real time.
-* User-Friendly Interface: Intuitive design tailored for ease of use on both desktop and mobile devices.
 
-Stack Used
-* HTML5 / CSS3 (Structure and Styling)
-* JavaScript / TypeScript (Functionality and Type Safety)
-* Vite (Bundling and Development Environment)
-* MongoDB (For data storage and authentication if applicable)
-* Git/GitHub (Version Control)
+# 🛒 **Grocery Guru** is a web app designed to help users find the most affordable grocery baskets while reducing food waste. It enables users to compare grocery prices across multiple stores and discover the best deals.
+
+---
+
+## ✨ Features
+
+- **Price Comparison** – Find the best deals across multiple stores.  
+- **Food Waste Reduction** – Discover discounts on near-expiry items. ♻️  
+- **User-Friendly Interface** – Enjoy a smooth and intuitive shopping experience.  
+
+---
+
+## 🏗️ Tech Stack
+
+- **Frontend:** HTML5, CSS3, JavaScript, TypeScript  
+- **Build Tool:** Vite  
+- **Database:** MongoDB  
+- **Version Control:** Git/GitHub  
+
+---
+
+## 🚀 Getting Started
+
+To set up the project locally:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ltfranks/GroceryGuru.git
+
 
 Home Page + Functionality: 
 ![image](https://github.com/user-attachments/assets/76c58b73-a040-4915-b863-f77c73c5ca83)
