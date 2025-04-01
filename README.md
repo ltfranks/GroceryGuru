@@ -1,6 +1,6 @@
+# 🛒 Grocery Guru
 
-
-# 🛒 **Grocery Guru** is a web app designed to help users find the most affordable grocery baskets while reducing food waste. It enables users to compare grocery prices across multiple stores and discover the best deals.
+Grocery Guru is a web app designed to help users find the most affordable grocery baskets while reducing food waste. It enables users to compare grocery prices across multiple stores and discover the best deals.
 
 ---
 
